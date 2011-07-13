@@ -1,0 +1,58 @@
+\input{preamble}
+
+\begin{document}
+
+% Use roman numbers on the start of the report
+\pagenumbering{Roman}
+% Use plain style
+\thispagestyle{plain}
+
+% Create table of contents
+\newpage{}
+\setcounter{secnumdepth}{2} % set numbering depth of sections and chapters
+\setcounter{tocdepth}{1} % set numbering depth of table of contents
+\tableofcontents*
+
+% Use temporary line numbers on all pages
+\setpagewiselinenumbers
+\modulolinenumbers[1]
+\linenumbers
+
+% Main Contents of report, add chapters here
+\chapter{Introduction}
+\pagenumbering{arabic}
+
+\chapter{Analysis}
+\input{ruby}
+\input{web_servers}
+\input{parallelism}
+\input{tcp_http}
+\input{literature_review}
+\input{requirements_specification}
+\input{development_method}
+\chapter{Design}
+\chapter{Implementation}
+\chapter{Testing \& Evaluation}
+\chapter{Conclusion}
+\chapter{Future Works}
+
+\label{theend}
+
+% Bibliography 
+\bibliographystyle{plain}
+\bibliography{references/Thesis}
+\nocite{*}
+\label{bib}
+
+% Appendix
+\appendix
+\addcontentsline{toc}{chapter}{Appendices}
+
+\label{pagecount}
+
+% FixME's chapter.. Should be commented out when finished
+%\newpage
+%\listoffixmes
+%\addcontentsline{toc}{chapter}{Fixme's}
+
+\end{document}
