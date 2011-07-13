@@ -8,7 +8,6 @@
 \thispagestyle{plain}
 
 % Create table of contents
-\newpage{}
 \setcounter{secnumdepth}{2} % set numbering depth of sections and chapters
 \setcounter{tocdepth}{1} % set numbering depth of table of contents
 \tableofcontents*
@@ -30,10 +29,15 @@
 \input{literature_review}
 \input{requirements_specification}
 \input{development_method}
+
 \chapter{Design}
+
 \chapter{Implementation}
+
 \chapter{Testing \& Evaluation}
+
 \chapter{Conclusion}
+
 \chapter{Future Works}
 
 \label{theend}
@@ -52,7 +56,7 @@
 
 % FixME's chapter.. Should be commented out when finished
 %\newpage
-%\listoffixmes
-%\addcontentsline{toc}{chapter}{Fixme's}
+\listoffixmes
+\addcontentsline{toc}{chapter}{Fixme's}
 
 \end{document}

@@ -1,75 +1,48 @@
-%\documentclass[11pt]{memoir}
 \documentclass[10pt,english,a4paper,twoside,openright]{memoir}
 % Packages
 \usepackage[english]{babel}
 \usepackage[draft,nomargin,inline,silent]{fixme}
 \usepackage[font=footnotesize,format=plain,labelfont=bf,up]{caption}
-\usepackage{lmodern}
-\usepackage{pifont}
-\usepackage{memhfixc}
-\usepackage[T1]{fontenc}
-\usepackage{multicol}
 \usepackage[pdftex,
             colorlinks=false,
             pdfduplex=DuplexFlipLongEdge,
             pdfborder={0 0 0},
-            pdftitle={s601a},
+            pdftitle={Thesis},
             pdfauthor={Jesper kjeldgaard},
             pdfsubject={},
             pdfkeywords={},
             plainpages=false
             ]{hyperref}
 \usepackage[pdftex]{graphicx}  %enables images & angling of them
-\usepackage{booktabs,multirow} %enables multirows in tables
-\usepackage{supertabular} % enables super tables :=)
-\usepackage{rotating} % landscape table
 \pdfminorversion=5
-%\RequirePackage{lineno} % enabling linenumbers
+\RequirePackage{lineno} % enabling linenumbers
 
  % pseudocode
-\usepackage{algorithmic}
-\usepackage{subfig}
-\usepackage{bbding}
+% \usepackage{algorithmic}
+% \usepackage{subfig}
+% \usepackage{bbding}
 
-\setlrmarginsandblock{3.5cm}{*}{0.5} % Right and left
-\setulmarginsandblock{2.5cm}{*}{1.1}    % Top and bottom
+% \setlrmarginsandblock{3.5cm}{*}{0.5} % Right and left
+% \setulmarginsandblock{2.5cm}{*}{1.1}    % Top and bottom
 
-% Change normal headers and footers
-\makeoddhead{headings}{}{}{\small\rightmark}
-\makeevenhead{headings}{\small\leftmark}{}{}
-
-\makeoddfoot{headings}{}{}{\small\thepage}
-\makeevenfoot{headings}{\small\thepage}{}{}
-
-\makeheadrule{headings}{\textwidth}{\normalrulethickness}
-\makefootrule{headings}{\textwidth}{\normalrulethickness}{\footruleskip}
 %Instillinger til code farvning i lstlisting
-\usepackage{listings}
-\usepackage{color}
-\usepackage[svgnames,tables,hyperref]{xcolor}
-\lstset{language=Ruby,captionpos=b,tabsize=2,numbers=left,numberstyle=\tiny,numbersep=4pt,frameround=tttf,breaklines=true,frame=single,showstringspaces=false,
-basicstyle=\color{black}\ttfamily\footnotesize,
-stringstyle=\color{gray},
-commentstyle=\color{gray}\itshape\ttfamily,
-keywordstyle=\color{black}\bfseries\ttfamily}
+% \usepackage{listings}
+% \usepackage{color}
+% \usepackage[svgnames,tables,hyperref]{xcolor}
+% \lstset{language=Ruby,captionpos=b,tabsize=2,numbers=left,numberstyle=\tiny,numbersep=4pt,frameround=tttf,breaklines=true,frame=single,showstringspaces=false,
+% basicstyle=\color{black}\ttfamily\footnotesize,
+% stringstyle=\color{gray},
+% commentstyle=\color{gray}\itshape\ttfamily,
+% keywordstyle=\color{black}\bfseries\ttfamily}
 
 % whitespace imellem paragraphs.
 \setlength{\parskip}{0.20cm}
 \setlength{\parindent}{0pt}
 
-% make hyperlinks \href{}
-\usepackage{hyperref}
-\hypersetup{pdftex, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=, pdfauthor=jesper kjeldgaard, pdfsubject=, pdfkeywords=}
-
-% used for citation
-\usepackage{cite}
-
-% for including graphics
 \DeclareGraphicsExtensions{.png,.eps}
 
-% for tables etc.
+\usepackage{cite}
 \usepackage{color}
 \usepackage{array}
-
-\usepackage{fancyhdr}
-\pagestyle{fancy}
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
