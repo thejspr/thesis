@@ -1,22 +1,41 @@
 \section{Ruby} % (fold)
 \label{sec:ruby}
-\metatext{Ruby in general. Concurrent programming in ruby. Describe different implementations.}
+\metatext{Ruby in general. Concurrent programming in ruby. Describe different
+  implementations.}
 
 %ruby in general
-Ruby is an dynamic, reflective object-oriented general-purpose programming language. It is dynamic in the sense that it is interpreted at runtime, and reflective in the sense that it can modify and inspect program behavior during runtime. 
-Ruby has a dynamic type system where the type of the object is determined by what the object can do in terms of which methods are available for the object. This type system is referred to as duck typing, i.e.\ if it walks like a duck and talks like a duck, then the interpreter will treat it like a duck.
+Ruby is an dynamic, reflective object-oriented general-purpose programming
+language. It is dynamic in the sense that it is interpreted at runtime, and
+reflective in the sense that it can modify and inspect program behavior during
+runtime.  Ruby has a dynamic type system where the type of the object is
+determined by what the object can do in terms of which methods are available
+for the object. This type system is referred to as duck typing, i.e.\ if it
+walks like a duck and talks like a duck, then the interpreter will treat it
+like a duck.
 
 \subsection{Concurrency in Ruby}
 
 \subsection{Ruby Implementations}
-Ruby code is run in a virtual machine (VM) of which there exists several implementations. The official Ruby VM, for Ruby 1.9, is called YARV (Yet Another Ruby VM). As there is no specification for Ruby, YARV serves as the reference implementation for the Ruby language. 
-There is however a project called RubySpec which aims to write an executable specification in the form of unit-tests which is executed against the Ruby VM implementation to verify that it executes Ruby correctly. The following describes three widely used Ruby implementations, namely YARV, Rubinius and JRuby, and how they facilitate concurrent programming.
+Ruby code is run in a virtual machine (VM) of which there exists several
+implementations. The official Ruby VM, for Ruby 1.9, is called YARV (Yet 
+Another Ruby VM). As there is no specification for Ruby, YARV serves as
+the reference implementation for the Ruby language.  There is however a
+project called RubySpec which aims to write an executable specification in the
+form of unit-tests which is executed against the Ruby VM implementation to
+verify that it executes Ruby correctly. The following describes three widely
+used Ruby implementations, namely YARV, Rubinius and JRuby, and how they
+facilitate concurrent programming.
 
 \subsubsection{Yet Another Ruby VM}
+YARV is developed an maintained as the official Ruby implementation and
+support both the current version of Ruby (1.9) and the older version which is
+still being used in many applications (1.8). 
 
 \subsubsection{Rubinius}
 
+
 \subsubsection{JRuby}
+JRuby is 
 
 
 % section ruby (end)
