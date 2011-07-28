@@ -14,7 +14,7 @@
 
 % Use temporary line numbers on all pages
 \setpagewiselinenumbers
-\modulolinenumbers[1]
+\modulolinenumbers[2]
 \linenumbers
 
 % Main Contents of report, add chapters here
@@ -22,6 +22,7 @@
 \pagenumbering{arabic}
 
 \chapter{Analysis}
+\input{analysis}
 \input{web_servers}
 \input{tcp_http}
 \input{concurrency}
@@ -31,8 +32,10 @@
 \input{development_method}
 
 \chapter{Design}
+\input{design}
 
 \chapter{Implementation}
+\input{implementation}
 
 \chapter{Testing \& Evaluation}
 

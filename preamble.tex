@@ -46,3 +46,11 @@
 \usepackage{array}
 % \usepackage{fancyhdr}
 % \pagestyle{fancy}
+
+% if, then else
+\usepackage{etoolbox}
+\newtoggle{metatexton}
+\toggletrue{metatexton}
+% \togglefalse{metatexton}
+
+\newcommand{\metatext}[1]{\iftoggle{metatexton}{\textit{Meta: #1}\newline}}
