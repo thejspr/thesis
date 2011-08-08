@@ -9,12 +9,13 @@
 
 % Create table of contents
 \setcounter{secnumdepth}{2} % set numbering depth of sections and chapters
-\setcounter{tocdepth}{1} % set numbering depth of table of contents
+\setcounter{tocdepth}{2} % set numbering depth of table of contents
+\addcontentsline{toc}{chapter}{Table of Contents}
 \tableofcontents*
 
 % Use temporary line numbers on all pages
 \setpagewiselinenumbers
-\modulolinenumbers[2]
+\modulolinenumbers[5]
 \linenumbers
 
 % Main Contents of report, add chapters here
@@ -23,10 +24,10 @@
 
 \chapter{Analysis}
 \input{analysis}
-\input{web_servers}
-\input{tcp_http}
 \input{concurrency}
 \input{ruby}
+\input{tcp_http}
+\input{web_servers}
 \input{literature_review}
 \input{requirements_specification}
 \input{development_method}
@@ -58,9 +59,8 @@
 
 \label{pagecount}
 
-% FixME's chapter.. Should be commented out when finished
 \newpage
 \listoffixmes
-\addcontentsline{toc}{chapter}{Fixme's}
+\addcontentsline{toc}{chapter}{Todo}
 
 \end{document}
