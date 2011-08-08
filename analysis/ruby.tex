@@ -13,7 +13,22 @@ for the object. This type system is referred to as duck typing, i.e.\ if it
 walks like a duck and talks like a duck, then the interpreter will treat it
 like a duck.
 
+The latest version of Ruby, version 1.9, holds several improvements over the
+older but still maintained version 1.8. Besides small syntactic changes and
+including a new VM, Ruby 1.9 introduced the concept of fibers.  The following
+section covers the options available for concurrent programming in Ruby.
+
 \subsection{Concurrency in Ruby}
+Ruby comes with several constructs for concurrent programming; fibers, threads
+and processes. The following describes the advantages and possible disadvantages
+of each of these concepts.
+
+\subsubsection{Fibers}
+
+\subsubsection{Threads}
+
+\subsubsection{Processes}
+
 
 \subsection{Ruby Implementations}
 Ruby code is run in a virtual machine (VM) of which there exists several
@@ -21,15 +36,15 @@ implementations. The official Ruby VM, for Ruby 1.9, is called YARV (Yet
 Another Ruby VM). As there is no specification for Ruby, YARV serves as
 the reference implementation for the Ruby language.  There is however a
 project called RubySpec which aims to write an executable specification in the
-form of unit-tests which is executed against the Ruby VM implementation to
+form of unit-tests which, is executed against the Ruby VM implementation to
 verify that it executes Ruby correctly. The following describes three widely
 used Ruby implementations, namely YARV, Rubinius and JRuby, and how they
 facilitate concurrent programming.
 
 \subsubsection{Yet Another Ruby VM}
-YARV is developed an maintained as the official Ruby implementation and
-support both the current version of Ruby (1.9) and the older version which is
-still being used in many applications (1.8). 
+YARV is developed an maintained as the official Ruby implementation and replaced
+the old VM MRI (Matz\footnote{Yukihiro Matsumoto, a.k.a.\ Matz is the creator of
+    the Ruby programming language} Ruby Interpreter) as of Ruby version 1.9.
 
 \subsubsection{Rubinius}
 

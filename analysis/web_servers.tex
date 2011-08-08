@@ -1,0 +1,53 @@
+\section{Webservers}
+\label{webservers}
+\meta{Cover several webservers, each with their unique way of handling
+  concurrent requests.}
+
+The goal of a webserver is listen on a port for incoming requests, handle them
+by either returning the contents of a file, run a program and return it's
+output, or, if an error occurred, return an error message. Since the Internet was
+made public over 20 years ago there have been countless webservers created, most
+of which focus on handling websites written in a specific programming language
+or framework. Multi-core processors have long been available in server
+environments and hence, many webservers employ techniques to raise their
+performance by handling http requests in parallel.
+
+This section looks at some of the current webservers and how they went about
+solving the problem of handling multiple http request in parallel.
+
+\subsection{Apache HTTP Server}
+Apache HTTP Server, or simply Apache, was initially released in 1995 and is the
+most used web server today surpassing 100 million websites in 2009
+\cite{apachestats}. Apache supports many different functionalities and
+programming languages as it can be extended by modules. Popular modules provide
+authentication, encryption, compression and multi-processing. To handle
+concurrent requests Apaches main process (the parent) forks child processes. 
+When using the multi-processing module, each each child process contains a fixed 
+number of server threads and one listener thread which divides incoming request
+amongst the server threads. This increases the throughput of Apache
+significantly when dealing with a high volume of concurrent requests
+\cite{apachempm}.
+
+\subsection{Rack}
+Rack is not an actual webserver, but an interface between webservers supporting
+Ruby and Ruby frameworks. It is covered here as the Ruby webservers covered next
+both implement it. Rack decouples the link between the webserver and
+web-application (written in one of the many Ruby frameworks) and hereby makes it
+possible to change webserver without having to make any changes to the web
+application. This is achieved by wrapping requests and responses in a Ruby
+object. By implementing the Rack interface, a webserver would immediately become
+compatible with more than 15 Ruby frameworks \cite{rackspec}.
+
+\subsection{Thin}
+Thin is a webserver written in Ruby which include a http parser written in C,
+implements the Rack interface and uses EventMachine to handle requests in a
+concurrent non-blocking manner. EventMachine is a library which enables
+event-driven (non-blocking) I/O by utilizing the reactor design pattern. The
+reactor pattern works by having a dispatcher (reactor) passing on work to
+various handlers, which then in turn fire an event when finished. This enables
+Thin to focus on other requests instead of waiting on blocking actions such as
+waiting for a file to be written to disk or fetching data from a remote API
+\cite{reactor}.
+
+% \subsection{Unicorn} mongrel?
+
