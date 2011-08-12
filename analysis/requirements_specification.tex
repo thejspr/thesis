@@ -4,10 +4,14 @@ should do, a set of requirements are essential. The following lists the
 requirements for the software developed in this project.
 
 \begin{itemize}
-  \item Handle a high volume of concurrent requests.
-  \item Implement the Rack interface.
+  \item Parse HTTP/1.1 requests in accordance with RFC 2616.
   \item Logging of requests and responses.
-  \item Handle multiple request in non-blocking parallel.
+  \item Handle concurrent requests in a non-blocking manner.
+  \item Serve static files and directory listings.
+  \item Serve dynamic content by executing Ruby scripts and returning the
+  output.
+  \item Implement the Rack interface and check for a Rack application in the
+  current directory.
 \end{itemize}
 
 As this project was developed using BDD, the requirements specification was

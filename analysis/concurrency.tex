@@ -1,6 +1,6 @@
 \section{Concurrent Programming} % (fold)
 \label{sec:concurrent}
-Concurrency refers to code which is executed simultaneusly on one or more
+Concurrency refers to code which is executed simultaneously on one or more
 processors or cores in a single processor. Concurrent Programming refers to
 programming language constructs which enables code to be executed concurrently.
 Concurrent code executed on a single-core processor will look like it's executed
@@ -13,8 +13,8 @@ has the potential to execute code in parallel, e.g.\ at the same instance in
 time.
 
 In most programming languages code is executed one statement at a time in a
-sequential maner. Most programming languages does however include constructs
-to allow for concurrent programming.  One of the most commen constructs is
+sequential manner. Most programming languages does however include constructs
+to allow for concurrent programming.  One of the most common constructs is
 \textit{threads}. A thread is an abstraction for a piece of code which is
 executed as a subroutine of the running program. This allows for executing
 several threads concurrently or in parallel on multiple processors.  In
@@ -26,13 +26,19 @@ mainly; race conditions and deadlocks. A race condition occurs when two or more
 pieces of code tries to manipulate the same variable, and the outcome of the
 program changes depending on the order of the manipulations. An example would be
 if two threads, A and B, stored a counter in a global variable. Imagine thread A 
-reads the value of the counter and then gets descheduled and thread B changes
+reads the value of the counter and then gets preempted and thread B changes
 the counter and saves it. Then when thread A gets resumed it would have an
 incorrect counter value, and changing the counter based on this would render
-thrad B's previous change. Race conditions can be fixed by synchronizing access
-to shared resources such as variables. A commen way too synchronize access to
+thread B's previous change. Race conditions can be fixed by synchronizing access
+to shared resources such as variables. A common way too synchronize access to
 shared resources is to add a mutual exclusion lock (mutex) around the code which
 accesses the shared resource. A mutex could ensure that only one thread uses the
-shared counter varible at a time. 
+shared counter variable at a time. Deadlocks can occur when shared resources gets
+locked by separate threads which then each waits for the other thread to
+release the resource.
+
+Race conditions occurring in a webserver could lead to erroneous data and
+deadlocks could result in the server becoming unresponsive. Hence, they should
+be avoided at all costs.
 
 % section concurrent (end)
