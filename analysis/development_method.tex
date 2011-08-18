@@ -1,4 +1,65 @@
 \section{Development Method} % (fold)
 \label{sec:development}
+\meta{Describes BDD and why I choose it}
 
-% section development (end)
+%intro
+For a software project to be successful it is important to choose the right
+development method. Behaviour-Driven Development (BDD) was chosen as the
+development method for this project due to it being an agile process and
+utilizing test-first development. The following describes BDD and how it suits
+this project.
+
+\subsection{Behaviour-Driven Development}
+%intro
+
+
+%cycle, acceptance -> spec -> red/green
+An iteration in BDD focus around an acceptance test covering one feature i.e.\
+logging functionality. At the beginning of the iteration an acceptance test is
+written and executing it should reveal that the functionality is not yet
+implemented according to it's requirements. Cucumber is a framework for writing
+acceptance tests in a natural language as a set of steps in one or more scenarios.
+An example Cucumber acceptance test is included in
+Listing~\ref{cucumber_example}.
+
+\bigskip
+\begin{lstlisting}[label=cucumber_example,caption=Cucumber acceptance test example.]
+Feature: Logging
+  As a webdeveloper
+  I want to have logging of HTTP requests
+  In order to debug errors or attacks on the webserver
+
+  Scenario: Logging of HTTP requests
+    Given the webserver is running
+    When a user visits http://localhost/posts
+    Then the log should contain "GET /posts"
+    And the log should contain "SENT /posts SUCCESS"
+\end{lstlisting}
+
+The acceptance test covers the logging functionality of a webserver and tests it
+by starting the webserver, making a request and then checking whether the log
+contains the correct entry.  The first line names the feature covered by the
+test. Lines 2 through 4 states the user of the feature, what it should do and
+lastly why and what business value it creates. Line 6 states a specific
+scenario, and often a feature has multiple scenarios and needs to test them
+separately. Scenarios contains separate steps which defines either a
+prerequisite (Given), an action (When) or a result (Then)\footnote{"And"
+continues the previous step type}. The semantic of the steps are defined in a
+set of step definitions written in plain Ruby.
+Listing~\ref{step_definition_example} is a step definition of the step used on
+line 9 in Listing~\ref{cucumber_example}.
+
+\begin{lstlisting}[label=step_definition_example,caption=Cucumber step definition.]
+Then /^the log should contain "([^"]*)"$/ do |entry|
+  File.open("log.txt", r) do |line|
+    line == entry
+  end 
+end
+\end{lstlisting}
+
+The step definition opens the log file and checks whether it contains given
+entry. Steps are matched with regular expressions and \texttt{"([^"]*)"}
+matches the string "GET /posts" on line 9 in Listing~\ref{cucumber_example}.
+Step definitions returns true if it passes and false if it didn't, and in the
+case of a failure displays a detailed debug message.
+
