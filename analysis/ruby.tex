@@ -13,13 +13,20 @@ for the object. This type system is referred to as duck typing, i.e.\ if it
 walks like a duck and talks like a duck, then the interpreter will treat it
 like a duck.
 
-Ruby was choosen for this project
-\fixme{Why ruby?}
-
 The latest version of Ruby, version 1.9, holds several improvements over the
 older but still maintained version 1.8. Besides small syntactic changes and
-including a new VM, Ruby 1.9 introduced the concept of fibers.  The following
-section covers the options available for concurrent programming in Ruby.
+including a new VM, Ruby 1.9 introduced the concept of fibers. Ruby 1.9 also
+includes RubyGems which enables easy packaging, installation and distribution of
+Ruby software. RubyGems, mostly referred to as \textit{gems}, can be used to
+modify or extend functionality within a Ruby application or to split out
+reusable code for others to benefit from. There are currently over 27.000 gems
+available and this greatly reduces the need to "reinvent the wheel", hence
+improving productivity. 
+
+Ruby was chosen for this project because it is dynamic, expressive, productive
+and terse, all adding to the speed and joyfulness of developing software.
+Furthermore, Ruby has several constructs available for concurrent programming
+which are covered below.
 
 \subsection{Concurrency in Ruby}
 Ruby comes with several constructs for concurrent programming; fibers, threads

@@ -11,9 +11,24 @@ this project.
 
 \subsection{Behaviour-Driven Development}
 %intro
+BDD is an evolution of Test-Driven Development (TDD) which focus more on the
+behaviour of the software instead of the structure (units). The problem with
+TDD is that it focus on the internals of an object's implementation making
+tests fails even when the behaviour of the code hasn't changed. In short TDD
+tests what an object \textit{is} and BDD tests what an object
+\textit{does}\cite{rspecbook}. Hence, BDD ensures business value is created and
+works as intended, and TDD ensures that the code is correct but is blind to
+whether it provides the intended business value. Figure~\ref{bdd_cycle} depicts
+the BDD cycle.
 
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.9\textwidth]{img/bdd_cycle.png}
+  \caption{The BDD development cycle\cite{rspecbook}}
+  \label{bdd_cycle}
+\end{figure}
 
-%cycle, acceptance -> spec -> red/green
+%cycle, acceptance
 An iteration in BDD focus around an acceptance test covering one feature i.e.\
 logging functionality. At the beginning of the iteration an acceptance test is
 written and executing it should reveal that the functionality is not yet
@@ -23,7 +38,7 @@ An example Cucumber acceptance test is included in
 Listing~\ref{cucumber_example}.
 
 \bigskip
-\begin{lstlisting}[label=cucumber_example,caption=Cucumber acceptance test example.]
+\begin{lstlisting}[label=cucumber_example,caption=Cucumber acceptance test example]
 Feature: Logging
   As a webdeveloper
   I want to have logging of HTTP requests
@@ -49,17 +64,50 @@ set of step definitions written in plain Ruby.
 Listing~\ref{step_definition_example} is a step definition of the step used on
 line 9 in Listing~\ref{cucumber_example}.
 
-\begin{lstlisting}[label=step_definition_example,caption=Cucumber step definition.]
-Then /^the log should contain "([^"]*)"$/ do |entry|
-  File.open("log.txt", r) do |line|
-    line == entry
-  end 
-end
+\bigskip
+\begin{lstlisting}[label=step_definition_example,caption=Cucumber step definition]
+  Then /^the log should contain "([^"]*)"$/ do |entry|
+    Server::log.should have(entry)
+  end
 \end{lstlisting}
 
-The step definition opens the log file and checks whether it contains given
-entry. Steps are matched with regular expressions and \texttt{"([^"]*)"}
+The step definition checks whether the server log contains given entry using
+RSpec. Steps are matched with regular expressions and \texttt{"([\^"]*)"}
 matches the string "GET /posts" on line 9 in Listing~\ref{cucumber_example}.
 Step definitions returns true if it passes and false if it didn't, and in the
 case of a failure displays a detailed debug message.
 
+%rspec -> red/green
+RSpec is a BDD framework for Ruby used to write behaviour specifications
+(specs). Specs are to BDD what unit tests is to TDD. Once the acceptance test is
+written and run, steps will fail as they are not implemented (step 2 on
+Figure~\ref{bdd_cycle}). Once implemented, steps might reveal application code
+which is not yet available and therefore fail. In the example above, this error
+could be caused by \texttt{Server} not having the method \texttt{log}. At this
+point (point 3 on Figure~\ref{bdd_cycle}, an RSpec spec is needed to define the
+behaviour of the \texttt{log} method. Listing~\ref{rspec_example} shows how such
+a spec might look.
+
+\bigskip
+\begin{lstlisting}[label=rspec_example,caption=RSpec (spec) example]
+describe "Server" do
+  describe "#log" do
+    it "should return an array" do
+      Server.log << "Test string"
+      Server.log.should.return(["Test string"])
+    end
+  end
+end
+\end{lstlisting}
+
+Lines 1 and 2 in Listing~\ref{rspec_example} describes that we are specifying
+the \texttt{log} method on the \texttt{Server} class. Line 3 describes the
+intended behaviour of the \texttt{log} method; namely that it should return an
+array. Then a test string is written to the log enabling the assertion that
+calling the \texttt{log} method should return that exact string. The next step
+in the BDD cycle is now to get the spec to pass (go from red to green) with the
+simplest solution possible. In case of the example this would require
+implementing the \texttt{log} method to return an array of log entries. Once the
+spec passes, the code can be refactored if possible, and then the developer
+moves on to the next failing step definition.  This process is continued until
+the acceptance test passes, meaning the feature is done.
