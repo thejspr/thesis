@@ -4,13 +4,9 @@
 
 %intro
 For a software project to be successful it is important to choose the right
-development method. Behaviour-Driven Development (BDD) was chosen as the
-development method for this project due to it being an agile process and
-utilizing test-first development. The following describes BDD and how it suits
-this project.
+development method. Two methods were considered for this project;
+Behaviour-Driven Development (BDD) and Test-Driven Development (TDD).
 
-\subsection{Behaviour-Driven Development}
-%intro
 BDD is an evolution of Test-Driven Development (TDD) which focus more on the
 behaviour of the software instead of the structure (units). The problem with
 TDD is that it focus on the internals of an object's implementation making
@@ -18,8 +14,23 @@ tests fails even when the behaviour of the code hasn't changed. In short TDD
 tests what an object \textit{is} and BDD tests what an object
 \textit{does}\cite{rspecbook}. Hence, BDD ensures business value is created and
 works as intended, and TDD ensures that the code is correct but is blind to
-whether it provides the intended business value. Figure~\ref{bdd_cycle} depicts
-the BDD cycle.
+whether it provides the intended business value.
+
+BDD was chosen as the development method for this project due to it being an
+improvement on TDD and allowing for rapid development without needing to
+design the entire system up front. This agility makes it easier to spot
+difficulties and caveats early the process, leaving more room to adapt. With
+BDD (and TDD) the design is constantly evolving as more code is added and
+former code is constantly reviewed and refactored. This form of design is
+referred to as an emergent design. The following describes the BDD development
+cycle and the tools used.
+
+\subsection{Behaviour-Driven Development}
+%intro
+BDD is made up of an outer and an inner loop. The outer loop concerns passing
+an acceptance test covering one feature i.e.\ logging functionality. The inner
+loop concerns passing RSpec behaviour specifications describing the behaviour
+of methods and objects. Figure~\ref{bdd_cycle} depicts the BDD cycle.
 
 \begin{figure}[htb]
   \centering
@@ -29,13 +40,11 @@ the BDD cycle.
 \end{figure}
 
 %cycle, acceptance
-An iteration in BDD focus around an acceptance test covering one feature i.e.\
-logging functionality. At the beginning of the iteration an acceptance test is
-written and executing it should reveal that the functionality is not yet
-implemented according to it's requirements. Cucumber is a framework for writing
-acceptance tests in a natural language as a set of steps in one or more scenarios.
-An example Cucumber acceptance test is included in
-Listing~\ref{cucumber_example}.
+At the beginning of the iteration an acceptance test is written and executing
+it should reveal that the functionality is not yet implemented according to
+it's requirements. Cucumber is a framework for writing acceptance tests in a
+natural language as a set of steps in one or more scenarios.  An example
+Cucumber acceptance test is included in Listing~\ref{cucumber_example}.
 
 \bigskip
 \begin{lstlisting}[label=cucumber_example,caption=Cucumber acceptance test example]
