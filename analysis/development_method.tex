@@ -27,10 +27,12 @@ cycle and the tools used.
 
 \subsection{Behaviour-Driven Development}
 %intro
-BDD is made up of an outer and an inner loop. The outer loop concerns passing
-an acceptance test covering one feature i.e.\ logging functionality. The inner
-loop concerns passing RSpec behaviour specifications describing the behaviour
-of methods and objects. Figure~\ref{bdd_cycle} depicts the BDD cycle.
+Behaviour-driven Development (BDD) revolves around writing specifications for
+what a program is intended to do. This process is made up of an outer and an
+inner loop. The outer loop concerns passing an acceptance test covering one
+feature i.e.\ logging functionality. The inner loop concerns passing RSpec
+behaviour specifications describing the behaviour of methods and objects.
+Figure~\ref{bdd_cycle} depicts the BDD cycle.
 
 \begin{figure}[htb]
   \centering
@@ -99,7 +101,7 @@ a spec might look.
 
 \bigskip
 \begin{lstlisting}[label=rspec_example,caption=RSpec (spec) example]
-describe "Server" do
+describe Server do
   describe "#log" do
     it "should return an array" do
       Server.log << "Test string"
@@ -114,9 +116,9 @@ the \texttt{log} method on the \texttt{Server} class. Line 3 describes the
 intended behaviour of the \texttt{log} method; namely that it should return an
 array. Then a test string is written to the log enabling the assertion that
 calling the \texttt{log} method should return that exact string. The next step
-in the BDD cycle is now to get the spec to pass (go from red to green) with the
-simplest solution possible. In case of the example this would require
-implementing the \texttt{log} method to return an array of log entries. Once the
-spec passes, the code can be refactored if possible, and then the developer
-moves on to the next failing step definition.  This process is continued until
-the acceptance test passes, meaning the feature is done.
+in the BDD cycle is now to get the spec to pass (go from red to green) with
+the simplest solution possible. In case of the example this would require
+implementing the \texttt{log} method to return an array of log entries. Once
+the spec passes, the code can be refactored if possible, and then the
+developer moves on to the next failing step definition. This process is
+continued until the acceptance test passes, meaning the feature is done.
