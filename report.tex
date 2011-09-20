@@ -7,6 +7,9 @@
 % Use plain style
 \thispagestyle{plain}
 
+% Title page
+\input{title_page}
+
 % Create table of contents
 \setcounter{secnumdepth}{2} % set numbering depth of sections and chapters
 \setcounter{tocdepth}{2} % set numbering depth of table of contents
@@ -21,28 +24,40 @@
 % Main Contents of report, add chapters here
 \chapter{Introduction}
 \pagenumbering{arabic}
+\input{introduction}
 
-\chapter{Analysis}
-\input{analysis/analysis}
-\input{analysis/concurrency}
-\input{analysis/ruby}
-\input{analysis/tcp_http}
-\input{analysis/web_servers}
-\input{analysis/literature_review}
+\chapter{Background and Literature Review}
+\input{bg/bg_intro}
+\input{bg/concurrency}
+\input{bg/ruby}
+\input{bg/tcp_http}
+\input{bg/web_servers}
+\input{bg/literature_review}
+\input{bg/development_method}
+
+\chapter{Analysis and Design}
+\meta{Should describe how and why I have decided upon the set of requirements.
+  Given my choice of development method, there is not much design upfront,
+        hence this section will only contain some initial thoughts on the
+          structure of the software.}
 \input{analysis/requirements_specification}
-\input{analysis/development_method}
-
-\chapter{Design}
 \input{design/design}
 
-\chapter{Implementation}
+\chapter{Implementation and Testing}
 \input{implementation/implementation}
+\meta{I choose to put imlementation and testing together as that suits the
+  development method well. The chapter will contain interesting parts of the
+    implementation, problems which arised along the way and how I solved them.}
 
-\chapter{Testing \& Evaluation}
+\chapter{Demonstration and Evaluation}
+\meta{Demonstrate the final product with screenshots and describe how is is
+  used. This section will also contain the results of the benchmarks. The
+    evaluation will look back on the requirements and see whether they have
+    been fulfilled.}
 
 \chapter{Conclusion}
+\input{conclusion}
 
-\chapter{Future Works}
 
 \label{theend}
 
