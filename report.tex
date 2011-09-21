@@ -47,13 +47,31 @@
 \input{implementation/implementation}
 \meta{I choose to put imlementation and testing together as that suits the
   development method well. The chapter will contain interesting parts of the
-    implementation, problems which arised along the way and how I solved them.}
+    implementation, problems which arised along the way and how I solved them.
+There is a section fore each of the requirements.}
+\section{HTTP Parser}
+\meta{describe how the parser works and the alternatives considered}
+\section{Logging}
+\meta{describe the logging functionality (possibly not interesting and might
+    be skipped)}
+\section{Concurrency}
+\meta{describe the concurrency model and the differnt iterations}
+\section{Static and Dynamic files}
+\meta{Describe how static and dynamic files are served}
+\section{Rack Interface}
+\meta{describe how the Rack interface was implemented and what it required}
 
 \chapter{Demonstration and Evaluation}
 \meta{Demonstrate the final product with screenshots and describe how is is
   used. This section will also contain the results of the benchmarks. The
     evaluation will look back on the requirements and see whether they have
     been fulfilled.}
+\section{Demonstration}
+\meta{Briefly show screenshots and how the server works and is distributed}
+\section{Benchmarks}
+\meta{Show the results of benchmarking the server with various Ruby Vm's. The
+results will also be analyzed to find the source of possible bottlenecks and
+also compared to other webservers.}
 
 \chapter{Conclusion}
 \input{conclusion}
