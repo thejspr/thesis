@@ -28,20 +28,20 @@
 
 \chapter{Background and Literature Review}
 \input{bg/bg_intro}
+\input{bg/development_method}
+\input{bg/web_servers}
 \input{bg/concurrency}
 \input{bg/ruby}
-\input{bg/tcp_http}
-\input{bg/web_servers}
-\input{bg/literature_review}
-\input{bg/development_method}
+% \input{bg/literature_review}
+\newpage
 
-\chapter{Analysis and Design}
+\chapter{Analysis}
 \meta{Should describe how and why I have decided upon the set of requirements.
   Given my choice of development method, there is not much design upfront,
         hence this section will only contain some initial thoughts on the
           structure of the software.}
 \input{analysis/requirements_specification}
-\input{design/design}
+\newpage
 
 \chapter{Implementation and Testing}
 \input{implementation/implementation}
@@ -60,6 +60,7 @@ There is a section fore each of the requirements.}
 \meta{Describe how static and dynamic files are served}
 \section{Rack Interface}
 \meta{describe how the Rack interface was implemented and what it required}
+\newpage
 
 \chapter{Demonstration and Evaluation}
 \meta{Demonstrate the final product with screenshots and describe how is is
@@ -72,6 +73,7 @@ There is a section fore each of the requirements.}
 \meta{Show the results of benchmarking the server with various Ruby Vm's. The
 results will also be analyzed to find the source of possible bottlenecks and
 also compared to other webservers.}
+\newpage
 
 \chapter{Conclusion}
 \input{conclusion}

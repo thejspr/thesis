@@ -33,9 +33,11 @@ Ruby comes with several constructs for concurrent programming; fibers, threads
 and processes. The following describes the advantages and possible disadvantages
 of each of these concepts.
 
+\subsubsection{Threads}
+
+
 \subsubsection{Fibers}
 
-\subsubsection{Threads}
 
 \subsubsection{Processes}
 
@@ -50,17 +52,33 @@ form of unit-tests which, is executed against the Ruby VM implementation to
 verify that it executes Ruby correctly. The following describes three widely
 used Ruby implementations, namely YARV, Rubinius and JRuby, and how they
 differ concurrent programming.
+\fixme{sources}
 
 \subsubsection{Yet Another Ruby VM}
 YARV is developed an maintained as the official Ruby implementation and replaced
 the old VM MRI (Matz\footnote{Yukihiro Matsumoto, a.k.a.\ Matz is the creator of 
-the Ruby programming language} Ruby Interpreter) as of Ruby version 1.9. 
+the Ruby programming language} Ruby Interpreter) as of Ruby version 1.9. Given
+YARV is the one driving the Ruby language implementation, it always has the
+latest languages features and updates, whereas other Ruby implementations tend
+to be a bit behind. The latests stable version of YARV is 1.9.2, with 1.9.3
+being just around the corner.
+\fixme{sources}
 
 \subsubsection{Rubinius}
-
+\fixme{Decide whether to include rubinius in tests, otherwise dont describe
+  it}
 
 \subsubsection{JRuby}
-JRuby is 
+JRuby is a Ruby implementatation that runs on any Java Virtual Machine (JVM)
+and therefore enables using Java libraries from within Ruby. Java is a very
+mature and large ecosystem with many useful libraries, language constructs and
+concurrency models.
+\fixme{How does jruby exactly work?}
+
+JRuby does not include a GIL as YARV does and therefore allows true
+parallelism as opposed to only having one thread/fiber/process run at a time.
+JRuby, as of version 1.6.4, supports both Ruby 1.8 and 1.9.
+\fixme{sources}
 
 
 % section ruby (end)
