@@ -36,30 +36,15 @@
 \newpage
 
 \chapter{Analysis}
-\meta{Should describe how and why I have decided upon the set of requirements.
-  Given my choice of development method, there is not much design upfront,
-        hence this section will only contain some initial thoughts on the
-          structure of the software.}
 \input{analysis/requirements_specification}
 \newpage
 
 \chapter{Implementation and Testing}
-\input{implementation/implementation}
-\meta{I choose to put imlementation and testing together as that suits the
-  development method well. The chapter will contain interesting parts of the
-    implementation, problems which arised along the way and how I solved them.
-There is a section fore each of the requirements.}
-\section{HTTP Parser}
-\meta{describe how the parser works and the alternatives considered}
-\section{Logging}
-\meta{describe the logging functionality (possibly not interesting and might
-    be skipped)}
-\section{Concurrency}
-\meta{describe the concurrency model and the differnt iterations}
-\section{Static and Dynamic files}
-\meta{Describe how static and dynamic files are served}
-\section{Rack Interface}
-\meta{describe how the Rack interface was implemented and what it required}
+\input{implementation/impl_intro}
+\input{implementation/parser}
+\input{implementation/logging}
+\input{implementation/concurrency}
+\input{implementation/rack}
 \newpage
 
 \chapter{Demonstration and Evaluation}
