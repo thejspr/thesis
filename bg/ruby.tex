@@ -29,12 +29,36 @@ Furthermore, Ruby has several constructs available for concurrent programming
 which are covered below.
 
 \subsection{Concurrency in Ruby}
-Ruby comes with several constructs for concurrent programming; fibers, threads
-and processes. The following describes the advantages and possible disadvantages
+Ruby comes with several constructs for concurrent programming; processes, threads
+and fibers. The following describes the advantages and possible disadvantages
 of each of these concepts.
 
-\subsubsection{Threads}
+\subsubsection{Processes}
+A process is a running instance of a program, e.g.\ a running webserver or an
+open text editor. Processes are handled by the operating system (OS) which
+will utilize the available processors to run procesesses in parellel.
+Hence, parellelism is achieved by running multiple instances (processes) of
+the same program.
 
+Ruby includes a library for creating, killing and inspecting
+processes. Creating a new process is done by \textit{forking} a new process
+from the current one. Forking starts a new Ruby VM with the executing program
+as a new process. The forked and the original process does not have access to
+each other memory, and thereby eliminates many of the problems regarding
+race-conditions and deadlocks. The disadvantage of using multiple processes is
+that it becomes much harder for them to share state and to communicate.
+
+\subsubsection{Threads}
+A thread is an encaptulation of a set of instructions and it's execution can
+be managed. A thread can be seen as a lightweight process which has access to
+the current programs memory. Threads are managed by a thread-scheduler which
+decides when threads are executed and preempted to enable other threads to
+run. Using threads introduces complex issues as race-conditions can easily
+occur due to all threads having access to the same memory.
+
+The advantages of using threads is that they can easily share data, but that
+is also one of it's disadvantages as it can easily become quite complex and
+bugs concering multi-threaded code can be very hard to discover.
 
 \subsubsection{Fibers}
 A fiber in Ruby is a coroutine mechanism which enables pausing and resuming
@@ -47,10 +71,6 @@ scheduler, fibers must be scheduled by the programmer \cite{rubyfiber}.
 The advantages of fibers over threads are that they have a significantly lower
 memory footprint and doesn't introduce the complexity of a scheduler as
 threads do.
-
-
-\subsubsection{Processes}
-
 
 \subsection{Ruby Implementations}
 Ruby code is run in a virtual machine (VM) of which there exists several
