@@ -1,2 +1,98 @@
 \section{HTTP Parser}
 \meta{describe how the parser works and the alternatives considered}
+
+The HTTP request is received as a sting of text, and in order to know the how
+to respond, it needs to be checked for it's validity. Furthermore, it should
+be stored in a more convenient data format, to enable easier looking up
+request information.
+
+\section{HTTP Requests}
+%RFC
+The current version of the HTTP protocol, version 1.1, is well defined in a
+specification called RFC 2616\cite{rfc}. The specification clearly defines how
+a HTTP request is formed and what it consists of. Listing~\ref{bnf} is an
+excerpt from the specification and shows the overall structure of a HTTP
+request.
+
+\bigskip
+\begin{lstlisting}[label=bnf,caption=HTTP request structure]
+Request = Request-Line
+          *(( general-header
+           | request-header
+           | entity-header ) CRLF)
+          CRLF
+          [ message-body ]
+\end{lstlisting}
+
+Listing\ref{bnf} translates to a \texttt{Request-Line}, followed by zero or
+more headers, and after a \texttt{CRLF} an optional \texttt{message-body}.
+Headers include information such as cookies present in the browser, browser
+type, size of the \texttt{message-body} etc.. \texttt{CRLF} is a newline (line
+break), and is used to define the structure of the request, e.g.\ each
+header is a separate line and an empty line separate the last header and the
+\texttt{message-body}. The \texttt{Request-Line}, as shown in
+Listing~\ref{reqline}, consists of a method, URI and HTTP version.
+
+\bigskip
+\begin{lstlisting}[label=reqline,caption=HTTP Request-Line]
+Request-Line = Method SP Request-URI SP HTTP-Version CRLF
+\end{lstlisting}
+
+Listing~\ref{req_example} shows an example HTTP request.
+
+\bigskip
+\begin{lstlisting}[label=req_example,caption=Example HTTP request]
+GET /path/file.html HTTP/1.1
+User-Agent: Internet Explorer
+Cookie: $userid=123;
+Content-Length: 21
+
+field=value&show=true
+\end{lstlisting}
+
+% different parsers
+\section{Parsing Strategy}
+% There are several methods for parsing text according to a specification. One
+% is to use regular expressions to match patterns, another would be to use a
+% formal grammar to describe the form of the requests.
+The parser was written using a Ruby library named Parslet. Parslet works by
+defining a set of rules and then applying them to check whether the input
+satisfies the rules, and then extracts defined values. The rules consists of a
+mix of regular expressions and boolean logic.
+
+Listing~\ref{parsersrc} shows the rule for the \texttt{Request-Line} as shown
+in Listing~\ref{reqline}.
+
+\begin{lstlisting}[label=parsersrc]
+rule(:request_line) do 
+  method.as(:method) >> 
+  space >> 
+  request_uri.as(:uri) >> 
+  space >> 
+  http_version.as(:version) >> 
+  crlf.maybe 
+end
+\end{lstlisting}
+
+When a request is successfully parsed, a \texttt{Hash} containing the request
+data is returned. E.g.\ running the parser on the example from
+Listing~\ref{Request-Line} will produce the following \texttt{Hash}:
+
+\begin{lstlisting}[label=parser_out,caption=Example \texttt{Parser} output]
+{
+  :method=>"GET"@0,
+  :uri=>{:path=>"/path/file.html"@4},
+  :version=>"HTTP/1.1"@20,
+  :headers=>
+    {
+      "User-Agent"=>"Internet Explorer",
+      "Cookie"=>"$userid=123;",
+      "Content-Length"=>"21"
+    },
+  :body=>"field=value&show=true"@105
+}
+\end{lstlisting}
+
+With the request nicely formatted in a \texttt{Hash} it becomes very easy to
+query information about it. The numbers in Listing~\ref{parser_out} preluded
+by a \@ denote the elements start position in the request.
