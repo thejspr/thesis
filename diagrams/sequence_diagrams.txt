@@ -1,9 +1,10 @@
 Static content:
-Client->Yarn: GET /index.html HTTP/1.1
-Yarn->StaticFileHandler: TCP socket
-StaticFileHandler->Parser: Parse HTTP request
-StaticFileHandler->Disk: Read file
-StaticFileHandler->Client: Return HTTP response w/ file contents
+Client->Server: GET / HTTP/1.1
+Server->RequestHandler: TCP socket
+RequestHandler->Parser: Parse HTTP request
+Parser->RequestHandler: Return Hash
+RequestHandler: Read file
+RequestHandler->Client: Return HTTP response w/ file contents
 
 Dynamic content:
 

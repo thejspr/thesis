@@ -1,12 +1,12 @@
 \section{HTTP Parser}
-\meta{describe how the parser works and the alternatives considered}
+% \meta{describe how the parser works and the alternatives considered}
 
 The HTTP request is received as a sting of text, and in order to know the how
 to respond, it needs to be checked for it's validity. Furthermore, it should
 be stored in a more convenient data format, to enable easier looking up
 request information.
 
-\section{HTTP Requests}
+\subsection{HTTP Requests}
 %RFC
 The current version of the HTTP protocol, version 1.1, is well defined in a
 specification called RFC 2616\cite{rfc}. The specification clearly defines how
@@ -44,14 +44,13 @@ Listing~\ref{req_example} shows an example HTTP request.
 \begin{lstlisting}[label=req_example,caption=Example HTTP request]
 GET /path/file.html HTTP/1.1
 User-Agent: Internet Explorer
-Cookie: $userid=123;
 Content-Length: 21
 
 field=value&show=true
 \end{lstlisting}
 
 % different parsers
-\section{Parsing Strategy}
+\subsection{Parsing Strategy}
 % There are several methods for parsing text according to a specification. One
 % is to use regular expressions to match patterns, another would be to use a
 % formal grammar to describe the form of the requests.
@@ -63,6 +62,7 @@ mix of regular expressions and boolean logic.
 Listing~\ref{parsersrc} shows the rule for the \texttt{Request-Line} as shown
 in Listing~\ref{reqline}.
 
+\bigskip
 \begin{lstlisting}[label=parsersrc]
 rule(:request_line) do 
   method.as(:method) >> 
@@ -78,6 +78,7 @@ When a request is successfully parsed, a \texttt{Hash} containing the request
 data is returned. E.g.\ running the parser on the example from
 Listing~\ref{Request-Line} will produce the following \texttt{Hash}:
 
+\bigskip
 \begin{lstlisting}[label=parser_out,caption=Example \texttt{Parser} output]
 {
   :method=>"GET"@0,
@@ -86,7 +87,6 @@ Listing~\ref{Request-Line} will produce the following \texttt{Hash}:
   :headers=>
     {
       "User-Agent"=>"Internet Explorer",
-      "Cookie"=>"$userid=123;",
       "Content-Length"=>"21"
     },
   :body=>"field=value&show=true"@105

@@ -1,2 +1,39 @@
 \section{System overview}
-\meta{The system as a whole. How it works w/ diagrams}
+% \meta{The system as a whole. How it works with diagrams}
+
+%intro
+The user interface with Yarn through a ruby script which accepts a
+hostname and port number for to listen for incoming requests on, the number
+of processes to fork and a Rack file. All parameters are optional, and default
+values are used if none are given. By default the webserver will listen on
+\texttt{127.0.0.1:3000}, with four worker processes serving static and dynamic
+content. If a Rack file is given, then Yarn will serve requests according to
+the Rack application. For debugging purposes, the user can supply a parameter
+to include debug messages in the log. The following describes how handles
+requests when serving static and dynamic files, and then how it serves Rack
+applications.
+
+When Yarn is started it will create a TCP server that listens for connections
+on either the given or default port and hostname. If a Rack file is given,
+then the application will be loaded. Then the process will fork into the given
+number of workers and Yarn is ready to handle incoming requests. Each worker
+contains a loop which, when registering an incoming connection, will call
+either the \texttt{RequestHandler} or \texttt{RackHandler} depending on
+whether a Rack application is loaded or not. Listing~\ref{worker_loop}
+contains the loop run in each worker process.
+
+\bigskip
+\begin{lstlisting}[label=worker_loop,caption=Worker loop
+(lib/yarn/server.rb:53)]
+loop do
+  handler ||= @app ? RackHandler.new(@app) : RequestHandler.new
+  session = @socket.accept
+  handler.run session 
+end
+\end{lstlisting}
+
+For each iteration, the loop will wait at line 3 for an incoming connection,
+and not busy wait and run again. The handler classes takes care of all the
+rest and closes the connection when finished. If the user sends
+the interrupt signal (usually by pressing Ctrl-c), Yarn will kill the worker
+processes, close the TCP server and exit.
