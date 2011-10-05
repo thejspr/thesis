@@ -2,13 +2,13 @@
 
 \begin{document}
 
+% Title page
+\input{title_page}
+
 % Use roman numbers on the start of the report
 \pagenumbering{Roman}
 % Use plain style
 \thispagestyle{plain}
-
-% Title page
-\input{title_page}
 
 % Create table of contents
 \setcounter{secnumdepth}{2} % set numbering depth of sections and chapters
@@ -48,22 +48,19 @@
 \input{implementation/rack}
 \newpage
 
-\chapter{Demonstration and Evaluation}
-\meta{Demonstrate the final product with screenshots and describe how is is
-  used. This section will also contain the results of the benchmarks. The
-    evaluation will look back on the requirements and see whether they have
-    been fulfilled.}
-\section{Demonstration}
-\meta{Briefly show screenshots and how the server works and is distributed}
-\section{Benchmarks}
-\meta{Show the results of benchmarking the server with various Ruby Vm's. The
-results will also be analyzed to find the source of possible bottlenecks and
-also compared to other webservers.}
+\chapter{Demonstration and Benchmarks}
+\meta{focus on showing it WORKS!}
+\input{demo}
+\input{benchmark}
+\newpage
+
+\chapter{Reflection}
+\input{reflection}
 \newpage
 
 \chapter{Conclusion}
 \input{conclusion}
-
+\newpage
 
 \label{theend}
 
