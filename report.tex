@@ -12,6 +12,9 @@
 % Use plain style
 \thispagestyle{plain}
 
+\input{abstract}
+\newpage
+
 % Create table of contents
 \setcounter{secnumdepth}{2} % set numbering depth of sections and chapters
 \setcounter{tocdepth}{2} % set numbering depth of table of contents
@@ -28,39 +31,51 @@
 \pagenumbering{arabic}
 \input{introduction}
 
-\chapter{Background and Literature Review}
+\chapter{Background}
+\label{bg}
 \input{bg/bg_intro}
 \input{bg/development_method}
 \input{bg/web_servers}
 \input{bg/concurrency}
 \input{bg/ruby}
+\input{bg/summary}
 % \input{bg/literature_review}
 \newpage
 
 \chapter{Analysis}
+\label{an}
 \input{analysis/requirements_specification}
 \newpage
 
-\chapter{Implementation and Testing}
+\chapter{Implementation}
+\label{im}
 \input{implementation/impl_intro}
 \input{implementation/overview}
 \input{implementation/parser}
 \input{implementation/requests}
 \input{implementation/rack}
 \input{implementation/concurrency}
+\input{implementation/impl_summary}
 \newpage
 
-\chapter{Demonstration and Benchmarks}
+\chapter{Testing}
+\label{te}
+\input{testing/testing}
+
+\chapter{Demonstration and Evaluation}
+\label{de}
 % \meta{focus on showing it WORKS!}
 \input{demo}
 \input{benchmark}
 \newpage
 
 \chapter{Reflection}
+\label{re}
 \input{reflection}
 \newpage
 
 \chapter{Conclusion}
+\label{co}
 \input{conclusion}
 \newpage
 

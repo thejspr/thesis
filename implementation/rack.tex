@@ -1,4 +1,39 @@
 \section{Rack Applications}
 \label{rack}
 % \meta{describe how the Rack interface was implemented and what it required}
+Implementing support for Rack applications consisted of two parts; loading the
+Rack application and communicating requests and responses between the server
+and the application.
+
+Rack application are specified in a Ruby file which needs to be evaluated to
+load the application. An example application is included which simply returns
+a static array is included in Listing~\ref{rackex}.
+
+\bigskip
+\begin{lstlisting}[label=rackex,caption=Sample Rack application. (test\_objects/config.ru:4)]
+run Proc.new { |env|
+  [200, {'Content-Type' => "text/plain"}, ["Rack works"]]
+}
+\end{lstlisting}
+
+When a Rack application file is supplied when running Yarn, the contents of
+the file is read, passed into the \texttt{Rack::Builder} constructor which is
+then evaluated. Listing~\ref{loadrack} contains the line where the Rack is
+loaded.
+
+\bigskip
+\begin{lstlisting}[label=loadrack,caption=Loading a Rack application.
+(lib/yarn/server.rb:31)]
+  config_file = File.read(app_path)
+  rack_application = eval("Rack::Builder.new { #{config_file} }")
+\end{lstlisting}
+
+Once loaded a Rack application is invoked with a \texttt{call} method which
+returns an array containing the HTTP status code, HTTP headers and message
+body. The The \texttt{call} method takes one parameter which is a
+\texttt{Hash} of values the Rack application needs such as the path, hostname,
+port, request body etc. \cite{rackspec}. 
+
+
+
 
