@@ -3,7 +3,7 @@
 \begin{document}
 
 % Title page
-\input{title_page}
+% \input{title_page}
 
 % Use roman numbers on the start of the report
 \pagenumbering{Roman}
@@ -13,13 +13,13 @@
 % Create table of contents
 \setcounter{secnumdepth}{2} % set numbering depth of sections and chapters
 \setcounter{tocdepth}{2} % set numbering depth of table of contents
-\addcontentsline{toc}{chapter}{Table of Contents}
+% \addcontentsline{toc}{chapter}{Table of Contents}
 \tableofcontents*
 
 % Use temporary line numbers on all pages
-\setpagewiselinenumbers
-\modulolinenumbers[5]
-\linenumbers
+% \setpagewiselinenumbers
+% \modulolinenumbers[5]
+% \linenumbers
 
 % Main Contents of report, add chapters here
 \chapter{Introduction}
@@ -43,9 +43,9 @@
 \input{implementation/impl_intro}
 \input{implementation/overview}
 \input{implementation/parser}
-\input{implementation/concurrency}
-\input{implementation/request_handler}
+\input{implementation/requests}
 \input{implementation/rack}
+\input{implementation/concurrency}
 \newpage
 
 \chapter{Demonstration and Benchmarks}
@@ -73,7 +73,7 @@
 % Appendix
 \appendix
 \appendixpage
-\input{acceptance_tests}
+% \input{acceptance_tests}
 
 \label{pagecount}
 

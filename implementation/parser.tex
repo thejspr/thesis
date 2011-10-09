@@ -1,4 +1,4 @@
-\section{HTTP Parser}
+\section{Parser}
 % \meta{describe how the parser works and the alternatives considered}
 
 The HTTP request is received as a sting of text, and in order to know the how
@@ -80,19 +80,22 @@ Listing~\ref{Request-Line} will produce the following \texttt{Hash}:
 
 \bigskip
 \begin{lstlisting}[label=parser_out,caption=Example \texttt{Parser} output]
-{
-  :method=>"GET"@0,
+{ :method=>"GET"@0,
   :uri=>{:path=>"/path/file.html"@4},
   :version=>"HTTP/1.1"@20,
   :headers=>
-    {
-      "User-Agent"=>"Internet Explorer",
-      "Content-Length"=>"21"
-    },
-  :body=>"field=value&show=true"@105
-}
+    { "User-Agent"=>"Internet Explorer",
+      "Content-Length"=>"21" },
+  :body=>"field=value&show=true"@105 }
 \end{lstlisting}
 
 With the request nicely formatted in a \texttt{Hash} it becomes very easy to
 query information about it. The numbers in Listing~\ref{parser_out} preluded
 by a \@ denote the elements start position in the request.
+
+\subsection{Testing}
+\label{testing_parser}
+The parser is tested directly with 17 specs, each covering an element of the
+request that should be parsed.
+
+
