@@ -1,4 +1,4 @@
-\documentclass[11pt,english,a4paper,twoside,openright]{memoir}
+\documentclass[11pt,english,a4paper,titlepage,twoside,openright]{memoir}
 % Packages
 \usepackage[english]{babel}
 \usepackage[draft,nomargin,inline,silent]{fixme}
@@ -15,15 +15,17 @@
             ]{hyperref}
 \usepackage[pdftex]{graphicx}  %enables images & angling of them
 \pdfminorversion=5
-\RequirePackage{lineno} % enabling linenumbers
+% \RequirePackage{lineno} % enabling linenumbers
 
- % pseudocode
-% \usepackage{algorithmic}
-% \usepackage{subfig}
-% \usepackage{bbding}
-
-% \setlrmarginsandblock{3.5cm}{*}{0.5} % Right and left
-% \setulmarginsandblock{2.5cm}{*}{1.1}    % Top and bottom
+\setlrmarginsandblock{4cm}{*}{0.75} % Right and left
+\setulmarginsandblock{3cm}{*}{1.5}    % Top and bottom
+% \usepackage{fullpage}
+% \addtolength{\oddsidemargin}{-.875in}
+% \addtolength{\evensidemargin}{-.875in}
+% \addtolength{\textwidth}{1.75in}
+% 
+% \addtolength{\topmargin}{-.875in}
+% \addtolength{\textheight}{1.75in}
 
 %Instillinger til code farvning i lstlisting
 \usepackage{listings}
@@ -52,21 +54,10 @@
 % \setlength{\parindent}{0pt}
 \usepackage{indentfirst}
 
-\usepackage{textcomp} % texttildelow
-
 \DeclareGraphicsExtensions{.png,.eps}
 
 \usepackage{cite}
 \usepackage{color}
 \usepackage{array}
-% \usepackage{fancyhdr}
-% \setlength{\headheight}{15.2pt}
-% \pagestyle{fancy}
 
-% if, then else
-% \usepackage{etoolbox}
-% \newtoggle{metatexton}
-% \toggletrue{metatexton}
-% \togglefalse{metatexton}
-
-% \newcommand{\metatext}[1]{\iftoggle{metatexton}{\textit{Meta: #1}\newline}}
+\checkandfixthelayout
