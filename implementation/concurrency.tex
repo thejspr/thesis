@@ -1,7 +1,84 @@
 \section{Concurrency}
-Concurrency was developed lastly as to be able to properly test Yarn with both
-Rack applications and static adn dynamic files.
-%threadpool
+Concurrency was developed lastly as to be able to properly test it with both
+Rack applications and static and dynamic files. This section covers the stages
+of development the concurrency feature went though, from using threads to
+switching to processes.
+
+\subsection{Initial Thread-per-request Implementation}
+The initial implementation handle each incoming request in a new thread. This
+quickly proved to introduce too much overhead in creating a new thread for
+each request. Furthermore, as the amount of threads hobbed up, memory usage
+would rise and eventually bog down the system.  It became clear that another
+solution was needed, and a system devised of a thread-pool and a job queue was
+devised. 
+
+%thread pool
+\subsection{Thread-pool and Job Queue Implementation}
+The thread-pool was an array of threads, each running a handler which listened
+for jobs to be added to the job queue. Each incoming request would be added to
+the job queue and then processed by one of the workers. The pros of this
+solution was that, with a fixed number of threads, memory usage was limited.
+Furthermore, the job queue made sure that no requests were dropped if all
+threads were busy. 
+
+Once implemented, several issues occurred which led to a rethink of the chosen
+concurrency model. One problem was that requests would often hang indefinitely
+and never return any content to the client. Exactly what caused this bug was
+never discovered though many hours were spent trying the track it down. It was
+suspected that the threads somehow created a deadlock which in turn would make
+the client wait until the browser timed out.  Never discovering the cause of
+the bug illustrates one of the key problems of threaded programming; bugs are
+often very hard to replicate due to the complexity of the thread model and the
+thread scheduler. 
+
+Another problem with the thread-pool implementation was that it performed sub
+par to the initial implementation of creating a new thread for each request.
+This seemed to be caused by the way threads were scheduled, but again it
+proved too difficult to pinpoint exactly the cause of the slow performance.
+
+Given the difficulty of a thread-based approach, it was decided to implement
+the concurrency feature using processes.
 
 %process model
+\subsection{Process-based Implementation}
+Implementing a process-based solution turned out to have many benefits, as it
+both reduced the complexity of Yarn, but also greatly improved upon it's
+performance.
+
+The process-based solution was implemented by using \texttt{Process::fork}
+from the Ruby standard library to create a process of the server. Each forked
+process listens for incoming requests and one handler to respond with.
+Listing~\ref{processimpl} shows the logic for creating new processes.
+
+\bigskip
+\begin{lstlisting}[label=processimpl,caption=Process-based implementation (lib/yarn/server.rb:52)]
+def init_workers
+  @num_workers.times do
+    @workers << fork_worker
+  end
+end
+
+def fork_worker
+  fork { worker }
+end
+
+def worker
+  trap("INT") { exit }
+  loop do
+    @handler ||= @app ? RackHandler.new(@app,@opts) : RequestHandler.new
+    session = @socket.accept
+    @handler.run session 
+  end
+end
+\end{lstlisting}
+
+Once the \texttt{fork} method is called on line 8, a new process is started
+with a separate Ruby VM and the continue from that point. Meaning, each
+process would contain the worker loop on line 13 through 17. On line 12, the
+interrupt signal (INT) is trapped, such that when the user presses
+\texttt{Ctrl-c}, then all processes will exit and Yarn will stop. 
+
+The process-based implementation improved the performance from $\sim$250
+requests/second to $\sim$800 requests/second. The performance is covered in
+more detail in Section~\ref{eval}.
 

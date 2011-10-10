@@ -9,7 +9,17 @@ are disk and network IO.
 
 \section{Future Work}
 % \meta{Covers which what could be improved if more time was available}
+Given more time for development, there are a number of imminent features and
+bugs which should be added or fixed before Yarn will be stable enough to be
+used in a production environment.
 
-opensource.
+%opensource.
+The source-code for Yarn is open-source and publicly available on Github which
+is a web-based collaborative Git hosting site. This enables anyone to suggest
+or add improvements and features to the project for the good of all Yarn
+users.
 
-Support keep-alive connections to save TCP overhead.
+%Support keep-alive connections to save TCP overhead.
+Yarn currently does not support persistent TCP connections, and for each
+request, a new TCP connection is used. This creates an overhead which could be
+spared by allowing clients to reuse existing connections.
