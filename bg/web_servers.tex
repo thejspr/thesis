@@ -12,22 +12,8 @@ or framework. Multi-core processors have long been available in server
 environments and hence, many webservers employ techniques to raise their
 performance by handling HTTP requests in parallel.
 
-
-This section looks at some of the available Ruby webservers and how they went
-about solving the problem of handling multiple HTTP request in parallel.
-
-% \subsection{Apache HTTP Server}
-% Apache HTTP Server, or simply Apache, was initially released in 1995 and is the
-% most used web server today surpassing 100 million websites in 2009
-% \cite{apachestats}. Apache supports many different functionalities and
-% programming languages as it can be extended by modules. Popular modules provide
-% authentication, encryption, compression and multi-processing. To handle
-% concurrent requests Apaches main process (the parent) forks child processes. 
-% When using the multi-processing module, each each child process contains a fixed 
-% number of server threads and one listener thread which divides incoming request
-% amongst the server threads. This increases the throughput of Apache
-% significantly when dealing with a high volume of concurrent requests
-% \cite{apachempm}.
+This section looks at some of the available Ruby webservers and the
+concurrency models they employ.
 
 \subsection{Rack}
 Rack is not an actual webserver, but an interface between webservers
@@ -41,7 +27,7 @@ would immediately become compatible with more than 15 Ruby frameworks
 \cite{rackspec}.
 
 \subsection{Thin}
-Thin is a webserver written in Ruby which include a http parser written in C,
+Thin is a webserver written in Ruby which include a HTTP parser written in C,
 implements the Rack interface and uses EventMachine to handle requests in a
 concurrent non-blocking manner. EventMachine is a library which enables
 event-driven (non-blocking) I/O by utilizing the reactor design pattern. The
@@ -51,10 +37,19 @@ Thin to focus on other requests instead of waiting on blocking actions such as
 waiting for a file to be written to disk or fetching data from a remote API
 \cite{reactor}.
 
+Thin works by running the EventMachine event loop in a single thread, and
+does therefore not employ any parallel processing, but does allow for
+concurrency due to the asynchronous nature of the reactor pattern. Thin is
+usually setup as a cluster of processes behind a proxy server or load
+balancer.
+
 \subsection{WEBrick}
-WEBrick is a webserver library which is included in the Ruby standard library.
-It was written in 2003, and does not take any steps towards supporting
-concurrency.
+WEBrick is a webserver which is included in the Ruby standard library. It is
+written entirely in Ruby and employs concurrency by creating a separate thread
+for each incoming request. Like Thin, multiple instances of WEBrick would be
+required to enable multiprocessing. WEBrick is mostly used as a development
+server as it does not perform well under heavy loads due to it's concurrency
+model.
 
 \subsection{Unicorn}
 \fixme{Write about the Unicorn webserver if used in tests}

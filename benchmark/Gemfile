@@ -1,0 +1,6 @@
+source :rubygems
+
+gem 'thin'
+gem 'yarn', :git => "https://github.com/thejspr/yarn"
+gem 'unicorn'
+# gem 'mongrel'
