@@ -1,7 +1,5 @@
 \section{Ruby} % (fold)
 \label{sec:ruby}
-% \metatext{Ruby in general. Concurrent programming in ruby. Describe different
-%   implementations.}
 
 %ruby in general
 Ruby is an dynamic, reflective object-oriented general-purpose programming
@@ -16,12 +14,12 @@ like a duck.
 The latest version of Ruby, version 1.9, holds several improvements over the
 older but still maintained version 1.8. Besides small syntactic changes and
 including a new VM, Ruby 1.9 introduced the concept of fibers. Ruby 1.9 also
-includes RubyGems which enables easy packaging, installation and distribution of
-Ruby software. RubyGems, mostly referred to as \textit{gems}, can be used to
-modify or extend functionality within a Ruby application or to split out
-reusable code for others to benefit from. There are currently over 27.000 gems
-available and this greatly reduces the need to "reinvent the wheel", hence
-improving productivity. 
+includes RubyGems which enables easy packaging, installation and distribution
+of Ruby software. RubyGems, mostly referred to as \textit{gems}, can be used
+to modify or extend functionality within a Ruby application or to split out
+reusable code for others to benefit from \cite{rubygems}. There are currently
+over 27.000 gems available and this greatly reduces the need to "reinvent the
+wheel", hence improving productivity. 
 
 Ruby was chosen for this project because it is dynamic, expressive, productive
 and terse, all adding to the speed and joyfulness of developing software.
@@ -47,7 +45,7 @@ process. The forked and the original process does not have access to each
 other memory, and thereby eliminates many of the problems regarding
 race-conditions and deadlocks. The disadvantage of using multiple processes is
 that, as they cannot share state, they have to communicate through an explicit
-protocol.
+protocol \cite{ruby19}.
 
 \subsubsection{Threads}
 A thread is an encapsulation of a set of instructions and it's execution can
@@ -59,7 +57,7 @@ occur due to all threads having access to the same memory.
 
 The advantages of using threads is that they can easily share data, but that
 is also one of it's disadvantages as it can easily become quite complex and
-bugs concerning multi-threaded code can be very hard to discover.
+bugs concerning multi-threaded code can be very hard to discover \cite{ruby19}.
 
 \subsubsection{Fibers}
 A fiber in Ruby is a coroutine mechanism which enables pausing and resuming
@@ -67,11 +65,11 @@ code blocks to achieve cooperative concurrency. A code block is a
 piece of ruby code encapsulated in an object, and can be passed into
 methods, saved in variables, and executed on demand. Fibers resembles threads in
 that they can be controlled from outside, but whereas threads are managed by a
-scheduler, fibers must be scheduled by the programmer \cite{rubyfiber}.
+scheduler, fibers must be scheduled by the programmer.
 
 The advantages of fibers over threads are that they have a significantly lower
 memory footprint and doesn't introduce the complexity of a scheduler as
-threads do.
+threads do \cite{rubyfiber}.
 
 \subsection{Ruby Implementations}
 Ruby code is run in a virtual machine (VM) of which there exists several
@@ -80,7 +78,6 @@ Another Ruby VM). As there is no specification for Ruby, YARV serves as
 the reference implementation for the Ruby language. The following describes
 two widely used Ruby implementations, namely YARV and JRuby, and how they
 differ regarding concurrent programming.
-\fixme{source}
 
 \subsubsection{Yet Another Ruby VM}
 YARV is developed an maintained as the official Ruby implementation and replaced
@@ -93,18 +90,15 @@ being just around the corner. YARV supports threads, fibers and processes, but
 includes a Global Interpreter Lock (GIL) which limits the Vm to only running
 one thread at a time. The GIL is included to ensure non-threadsafe
 C-extensions does not cause problems, and effectively bars YARV from
-untilizing true parallism from fibers and threads.
-\fixme{source}
+untilizing true parallism from fibers and threads \cite{ruby19}.
 
 \subsubsection{JRuby}
 JRuby is a Ruby implementation that runs on any Java Virtual Machine (JVM)
 and therefore enables using Java libraries from within Ruby. Java is a very
 mature and large ecosystem with many useful libraries, language constructs and
-concurrency models.
+concurrency models \cite{usejruby}.
 
 JRuby does not include a GIL as YARV does and therefore allows true
 parallelism for threads, as opposed to only having one thread/fiber run
 at a time. JRuby does however not support processes forking as it is not
-supported by the JVM\@.
-\fixme{source}
-
+supported by the JVM\@ \cite{jruby}.
