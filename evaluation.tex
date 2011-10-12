@@ -1,5 +1,5 @@
 This chapters looks critically at the final product and reflects upon the
-project process.
+project process using Behaviour-Driven Development.
 
 \section{Product Evaluation}
 The final version of Yarn (0.1.0) includes all features from the requirement
@@ -10,6 +10,10 @@ volumes. However, when the requests to worker process ratio becomes too high,
 some TCP connections are dropped and no content is delivered to the client.
 It was not possible to fix this bug as no more time was left for
 development.
+
+The performance of Yarn is quite satisfying for CPU intensive applications,
+but for static content it performs subpar to other Ruby webservers.
+\fixme{blame parser?}
 
 \section{Process Reflection}
 Developing software tests first proved to be difficult at times when it was
