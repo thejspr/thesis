@@ -1,6 +1,26 @@
 % \meta{A small summary of the whole project from start to finish.} 1/2 - 3/4
 % page.
 \begin{abstract}
-abstract. Written last.
+\addcontentsline{toc}{chapter}{Abstract}
+In this project, a concurrent webserver is implemented in Ruby using the
+Behaviour-Driven Development (BDD) method. 
+
+Topics relevant to the thesis, namely webservers, concurrent programming, the
+Ruby programming language and BDD are covered. The implementation of each
+requirement is described, along with selected technical problems and their
+solutions.
+
+Yarn, the name of the produced webserver, is benchmarked to other Ruby
+webservers and the results revealed that for static requests it performed
+subpar other webservers, but for CPU intensive applications it performed quite
+well.
+
+Using BDD enabled getting started on the implementation right away, without
+having to produce a big design upfront. This proved to be both a advantage and
+a disadvantage, as some design decisions which turned out not to work as
+expected, might have been avoided. As BDD employs a test-first approach, a
+large test-suite was produced and having many tests enabled for design changes
+late in the development, without having to worry about the correctness of the
+implementation.
 \end{abstract}
 
