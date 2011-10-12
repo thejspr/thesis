@@ -87,10 +87,10 @@ YARV is the one driving the Ruby language implementation, it always has the
 latest languages features and updates, whereas other Ruby implementations tend
 to be a bit behind. The latests stable version of YARV is 1.9.2, with 1.9.3
 being just around the corner. YARV supports threads, fibers and processes, but
-includes a Global Interpreter Lock (GIL) which limits the Vm to only running
+includes a Global Interpreter Lock (GIL) which limits the VM to only running
 one thread at a time. The GIL is included to ensure non-threadsafe
 C-extensions does not cause problems, and effectively bars YARV from
-untilizing true parallism from fibers and threads \cite{ruby19}.
+utilizing true parallelism from fibers and threads \cite{ruby19}.
 
 \subsubsection{JRuby}
 JRuby is a Ruby implementation that runs on any Java Virtual Machine (JVM)

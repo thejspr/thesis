@@ -58,8 +58,8 @@ Furthermore, the impact of Thin's and Unicorn's fast C HTTP parser has a
 higher impact when the time spent parsing the request relatively high compared
 to the amount of time spent creating the response.
 
-% next bm
-The results were quite different when a CPU intensive Rack application was
+% next BM
+The results were quite various when a CPU intensive Rack application was
 used. Listing~\ref{cpubench} shows the results of benchmarking with a Rack
 application that calculates the Fibonacci series up to 10000.
 
@@ -73,6 +73,6 @@ application that calculates the Fibonacci series up to 10000.
 With each request now having to run a CPU intensive computation, Unicorn came in
 first with 240 req/sec, Yarn second with 218 req/sec, then Thin with 90
 req/sec and lastly WEBrick with 50 req/sec. With a CPU intensive application,
-the benefits of parallel processing is clearly noticed, as is the case with
+the benefits of parallel processing is apparent, as is the case with
 Unicorn and Yarn. Thin and WEBrick would probably perform similarly if
 multiple instances and a load balancer was used.

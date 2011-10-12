@@ -1,11 +1,11 @@
 \section{Static and Dynamic Requests}
 % \meta{Describe how static and dynamic files are served}
-Serving static and dynamic content was developed as two seperate features and
+Serving static and dynamic content was developed as two separate features and
 handler classes \texttt{StaticHandler} and \texttt{DynamicHandler}, but
 later merged into what is now the \texttt{RequestHandler} class. From the
 beginning it was clear that the handler classes would have much functionality
 such as reading the request, invoking the parser and returning the response in
-common, but also some distinct functionality. A good way to vary an algorithm
+common, but also some distinct functionality. A way to vary an algorithm
 whilst keeping much of the functionality the same is to use the Template
 Method design pattern. The process of handling requests can be split up into
 the following steps:
@@ -13,15 +13,15 @@ the following steps:
 \begin{enumerate}
   \item Parse the request
   \item Prepare the response
-  \item Return the reponse to the client
+  \item Return the response to the client
   \item Close the connection
 \end{enumerate}
 
 Given this process, the part that differs between handling static and dynamic
 files is preparing the response. The Template Method makes provides a
 convenient way to vary the implementation of how the response is prepared
-\cite{design_patterns}.
-Figure~\ref{template} shows how the relationship between the handler classes.
+\cite{design_patterns}.  Figure~\ref{template} shows how the relationship
+between the handler classes.
 
 \begin{figure}[htb]
   \centering
