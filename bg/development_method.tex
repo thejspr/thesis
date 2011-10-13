@@ -1,23 +1,29 @@
 \section{Development Method} % (fold)
 \label{sec:development}
 %intro
-For a software project to be successful it is important to choose the right
-development method. Two methods were considered for this project;
+Software development methods are often used to manage the scope and complexity
+of software projects. Some methods follow a linear approach and dictates first
+the system is designed, then implemented and finally tested. Whilst this
+approach works in many situations, it is critized for it's inability to handle
+difficulties arising in the process. Another type of methods grouped as agile,
+provides an interative process where the software is designed,
+developed and tested through a series of iterations \cite{bddintro}. 
+Two agile methods were considered for this project;
 Behaviour-Driven Development (BDD) and Test-Driven Development (TDD).
 
-BDD is an evolution of Test-Driven Development (TDD) which focus more on the
-behaviour of the software instead of the structure (units). The problem with
-TDD is that it focus on the internals of an object's implementation making
+BDD is an evolution of TDD which focus more on the
+behaviour of the software instead of the software structure. A problem with
+TDD is that it focus on the internals of the implementation structure, making
 tests fail even when the behaviour of the code hasn't changed. In short TDD
 tests what an object \textit{is} and BDD tests what an object
 \textit{does}\cite{rspecbook}. Hence, BDD ensures business value is created and
-works as intended, and TDD ensures that the code is correct but is blind to
+the software works as intended, TDD ensures that the code is correct but is blind to
 whether it provides the intended business value.
 
-BDD was chosen as the development method for this project due to it being an
-improvement on TDD and allowing for rapid development without needing to
-design the entire system up front. This agility makes it easier to spot
-difficulties and caveats early the process, leaving more room to adapt. With
+BDD was chosen as the development method for this project due to it being seen
+as an improvement on TDD and allowing for rapid development without needing to
+design the system up front. This agility makes it easier to handle
+difficulties and caveats during the process, leaving more room to adapt. With
 BDD (and TDD) the design is constantly evolving as more code is added and
 former code is constantly reviewed and refactored. This form of design is
 referred to as an emergent design. The following describes the BDD development
@@ -25,7 +31,7 @@ cycle and the tools used \cite{bddintro}.
 
 \subsection{Behaviour-Driven Development}
 %intro
-Behaviour-driven Development (BDD) revolves around writing specifications for
+BDD revolves around writing specifications for
 what a program is intended to do. This process is made up of an outer and an
 inner loop. The outer loop concerns passing an acceptance test covering one
 feature i.e.\ logging functionality. The inner loop concerns passing RSpec
@@ -34,8 +40,8 @@ Figure~\ref{bdd_cycle} depicts the BDD cycle.
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.9\textwidth]{img/bdd_cycle.png}
-  \caption{The BDD development cycle\cite{rspecbook}}
+  \includegraphics[width=0.9\textwidth]{diagrams/bdd_cycle.pdf}
+  \caption{The BDD development cycle \cite{rspecbook}.}
   \label{bdd_cycle}
 \end{figure}
 
@@ -60,7 +66,7 @@ Feature: Logging
     And the log should contain "SENT /posts SUCCESS"
 \end{lstlisting}
 
-The acceptance test covers the logging functionality of a webserver and tests it
+The acceptance test in Listing~\ref{cucumber_example} covers the logging functionality of a webserver and tests it
 by starting the webserver, making a request and then checking whether the log
 contains the correct entry.  The first line names the feature covered by the
 test. Lines 2 through 4 states the user of the feature, what it should do and
@@ -68,8 +74,8 @@ lastly why and what business value it creates. Line 6 states a specific
 scenario, and often a feature has multiple scenarios and needs to test them
 separately. Scenarios contains separate steps which defines either a
 prerequisite (Given), an action (When) or a result (Then)\footnote{"And"
-continues the previous step type}. The semantic of the steps are defined in a
-set of step definitions written in plain Ruby.
+continues the previous step type}. The semantics of the steps are defined in a
+set of step definitions written in Ruby.
 Listing~\ref{step_definition_example} is a step definition of the step used on
 line 9 in Listing~\ref{cucumber_example}.
 
@@ -97,7 +103,7 @@ point (point 3 on Figure~\ref{bdd_cycle}, an RSpec spec is needed to define the
 behaviour of the \texttt{log} method. Listing~\ref{rspec_example} shows how such
 a spec might look.
 
-\newpage
+\bigskip
 \begin{lstlisting}[label=rspec_example,caption=RSpec (spec) example]
 describe Server do
   describe "#log" do
@@ -113,10 +119,11 @@ Lines 1 and 2 in Listing~\ref{rspec_example} describes that we are specifying
 the \texttt{log} method on the \texttt{Server} class. Line 3 describes the
 intended behaviour of the \texttt{log} method; namely that it should return an
 array. Then a test string is written to the log enabling the assertion that
-calling the \texttt{log} method should return that exact string. The next step
+calling the \texttt{log} method should contain that exact string. The next step
 in the BDD cycle is now to get the spec to pass (go from red to green) with
-the simplest solution possible. In case of the example this would require
+the simplest solution possible. In case of the example, this would require
 implementing the \texttt{log} method to return an array of log entries. Once
 the spec passes, the code can be refactored if possible, and then the
 developer moves on to the next failing step definition. This process is
-continued until the acceptance test passes, meaning the feature is done.
+continued until the acceptance test passes, meaning the feature is done and
+behaves as intended.

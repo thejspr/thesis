@@ -1,22 +1,22 @@
 \section{Concurrent Programming} % (fold)
 \label{sec:concurrent}
-Concurrent programming has become an increasingly importang issue over the
+Concurrent programming has become an increasingly important issue over the
 last decade due to the introduction of multi-core processors. As CPU
-manufactors rached a plateau in the clock speed due to heat issues, they
+malefactors reached a plateau in the clock speed due to heat issues, they
 started adding more cores to CPU's to make them faster. This poses a problem
 for software developers as they now have to explicitly program to
 multi-processor architectures in order to reap their benefits \cite{fund}.
 
-Concurrency refers to code which is executed simultaneously on one or more
-processors or cores in a single processor. Concurrent Programming refers to
+Concurrency refers to code which is executed simultaneously on several
+processors, or cores in a single processor. Concurrent programming refers to
 programming language constructs which enables code to be executed concurrently.
 Concurrent code executed on a single-core processor will look like it's executed
 at the same time, but in reality the processor executes increments of each piece
 of code by switching back and forth between them. The way a processor switches
 between concurrent tasks is referred to as context-switching, and can easily bog
 down a system as the context (program state and variables) needs to be loaded
-for every context-switch.  Concurrent code executed on a multi-core processor
-has the potential to execute code in parallel, e.g.\ at the same instance in
+for every context-switch. Concurrent code executed on a multi-core processor
+has the potential to run in parallel, e.g.\ at the same instance in
 time. True concurrency can occur on a computer with either multiple processors
 or one processor with multiple cores.
 
@@ -25,7 +25,7 @@ sequential manner. Most programming languages does however include constructs
 to allow for concurrent programming.  One of the most common constructs is
 \textit{threads}. A thread is an abstraction for a piece of code which is
 executed as a subroutine of the running program. This allows for executing
-several threads concurrently or in parallel on multiple processors.  In
+several threads concurrently or in parallel.  In
 Section~\ref{sec:ruby}, the constructs available in Ruby are covered in more
 detail.
 

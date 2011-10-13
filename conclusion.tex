@@ -1,6 +1,9 @@
 % \meta{The conclusion should summarise the work and the final product.}
 % What the thesis said
-A working webserver was created and all requirements were met. Yarn features
+% Theory regarding webservers, Ruby and concurrency was covered at the beginning
+% of the project and paved the way for creating a requirements specification.
+% 
+During this project a working webserver was created and all requirements were met. Yarn features
 logging, serving static and dynamic content, Rack applications and parallel
 processing of requests. Yard performed well when serving CPU intensive
 applications, but left room for improvements when serving static content.
@@ -21,8 +24,8 @@ used in a production environment.
 
 The bug regarding dropped TCP connections should be fixed, possibly by
 queuing incoming requests to make sure they are being properly served
-even at hight volumes. Implementing a request queue with the current process
-concurrency model will require some form of inter-process communication
+even at high volumes. Implementing a request queue with the current process
+concurrency model will however require some form of inter-process communication
 protocol.
 
 %Support keep-alive connections to save TCP overhead.

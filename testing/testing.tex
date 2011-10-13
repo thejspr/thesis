@@ -31,7 +31,7 @@ Listing~\ref{confea} shows the acceptance test for concurrent requests.
 
 \bigskip
 \begin{lstlisting}[label=confea,caption=Concurrency acceptance test
-(features/concurrency.feature:7)]
+(Yarn/features/concurrency.feature:7)]
 Scenario: Perform two requests in parallel
   Given the server is running
   Given a client "A"
@@ -51,7 +51,7 @@ as shown in Listing~\ref{parsacc}.
 
 \bigskip
 \begin{lstlisting}[label=parsacc,caption=HTTP parser acceptance test
-(features/parser.feature:7).]
+(Yarn/features/parser.feature:7).]
 Scenario: Parse HTTP request
   Given a HTTP request "GET /index.html HTTP/1.1\r\nUser-Agent: cucumber\r\n"
   And a parser
@@ -70,7 +70,7 @@ definitions.
 
 \newpage
 \begin{lstlisting}[label=accstep,caption=Parser step definitions excerpt
-(features/step\_definitions/parser\_steps.rb:1).]
+(Yarn/features/step\_definitions/parser\_steps.rb:1).]
 Given /^a parser$/ do
   @parser = Yarn::Parser.new
 end
@@ -93,21 +93,21 @@ class. For instance, the expected behaviour of being able to parse query
 parameters was written in a specification (Listing~\ref{queryspec}).
 
 \bigskip
-\begin{lstlisting}[label=queryspec,caption=Parser query parameter support specification (spec/yarn/parser\_spec.rb:54).]
+\begin{lstlisting}[label=queryspec,caption=Parser query parameter support specification (Yarn/spec/yarn/parser\_spec.rb:54).]
 it "parses query parameters in the URL" do
   result = Parser.new.run("GET /page?param1=1&param2=2 HTTP/1.1\n")
   result[:uri][:query].should == "param1=1&param2=2"
 end
 \end{lstlisting}
 
-To begin with the parser is executed with a HTTP request. Then the result
+To begin with, the parser is executed with a HTTP request. Then the result
 \texttt{Hash} is inspected to see whether the values match. Running the above
 specification would output an error message as the parser could not yet
 handle the query parameter. The behaviour, Listing~\ref{quepars} was then
 added to the \texttt{Parser} class.
 
 \bigskip
-\begin{lstlisting}[label=quepars,caption=URL query parameter support (lib/yarn/parser.rb:31).]
+\begin{lstlisting}[label=quepars,caption=URL query parameter support (Yarn/lib/yarn/parser.rb:31).]
 rule(:path) do 
   match['^\?'].repeat(1).as(:path) >> 
   str("?") >> 

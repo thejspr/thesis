@@ -1,13 +1,18 @@
 \section{Rack Applications}
 \label{rack}
 % \meta{describe how the Rack interface was implemented and what it required}
-Implementing support for Rack applications consisted of two parts; loading the
-Rack application and communicating requests and responses between the server
-and the application.
+Implementing support for Rack applications consisted of the following two parts: 
 
-Rack application are specified in a Ruby file which needs to be evaluated to
-load the application. An example application which simply returns
-an array is included in Listing~\ref{rackex}.
+\begin{enumerate}
+  \item Loading the Rack application from a file.
+  \item Communicating requests and responses between the server and the application.
+\end{enumerate}
+
+
+Rack applications are specified in a Ruby file which needs to be evaluated to
+load the application. An example application which returns
+a response with HTTP status 200, a Content-Type header, and a body with the
+test "Rack works", is included in Listing~\ref{rackex}.
 
 \newpage
 \begin{lstlisting}[label=rackex,caption=Sample Rack application. (test\_objects/config.ru:4)]
@@ -16,24 +21,21 @@ run Proc.new { |env|
 }
 \end{lstlisting}
 
-When a Rack application file is supplied when running Yarn, the contents of
+When a Rack application file is supplied when invoking Yarn, the contents of
 the file is read, passed into the \texttt{Rack::Builder} constructor which is
-then evaluated. Listing~\ref{loadrack} contains the line where the Rack is
-loaded.
+then evaluated. Listing~\ref{loadrack} contains the lines from the
+\texttt{Server} class where the Rack application is loaded.
 
 \bigskip
 \begin{lstlisting}[label=loadrack,caption=Loading a Rack application.
-(lib/yarn/server.rb:31)]
-  config_file = File.read(app_path)
-  rack_application = eval("Rack::Builder.new { #{config_file} }")
+(Yarn/lib/yarn/server.rb:46)]
+config_file = File.read(app_path)
+rack_application = eval("Rack::Builder.new { #{config_file} }.to_app", TOPLEVEL_BINDING, app_path)
 \end{lstlisting}
 
-Once loaded a Rack application is invoked with a \texttt{call} method which
+Once loaded, a Rack application is invoked with a \texttt{call} method which
 returns an array containing the HTTP status code, HTTP headers and message
 body. The \texttt{call} method takes one parameter which is a
 \texttt{Hash} of values the Rack application needs such as the path, hostname,
 port, request body etc. \cite{rackspec}. 
-
-
-
 

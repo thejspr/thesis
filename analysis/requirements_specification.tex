@@ -1,45 +1,44 @@
-% \meta{Should describe how and why I have decided upon the set of requirements.
-%   Given my choice of development method, there is not much design upfront,
-%         hence this section will only contain some initial thoughts on the
-%           structure of the software.}
-
 In order to have a clear goal of what the software produced in this project
-should do, a set of requirements are essential. 
+should do, a requirements specification is essential. The following reasons
+for the seven requirements for webserver produced in this project.
+
+The webserver is named Yarn, and the latter of the report will refer to it by
+this name.
 
 As covered in Section~\ref{webservers}, the main purpose of a webserver is to
-listen to HTTP requests, locate, and then return the resource or a response
-according to the request. Hence, the webserver should be able to parse HTTP
+listen for HTTP requests and then return a response
+according to the request. Therefore, Yarn should be able to parse HTTP
 requests in order to know how to respond. The parser should parse HTTP
 requests according to the RFC 2616 specification.
 
-In order to analyse and debug the webserver it should be able to log vital
+In order to analyse and debug Yarn, it should be able to log vital
 messages to the console. This feature would greatly improve troubleshooting
-and serve as a backlog of events in case of an error or an attack.
+and serve as a backlog of events in the case of an error or attack.
 
-To increase the performance and throughput of the webserver it should handle
-multiple requests at a time in a non-blocking manner. This would solve a slow
-request blocking other requests from being processed.
+To increase the performance and throughput of Yarn it should be able
+to handle
+multiple requests at a time in a non-blocking manner. This would keep a slow
+request from blocking other requests from being processed.
 
-The webserver should be able to serve static files like HTML, cascading
+Yarn should be able to serve static files like HTML, cascading
 stylesheets, JavaScript and images in order to make webpages work as expected.
-If no specific file is requested, then the webserver should return a HTML
-formatted directory listing with links to the files in the given folder.
+If a folder is requested, then Yarn should return a HTML
+formatted directory listing with links to the files in the given folder. 
 
 If a resources doesn't exist, or an error occurs during processing, the
 webserver should return an error page with a short message on what went wrong.
 
-The webserver should be able to webserver dynamic content by executing Ruby
-scripts and returning their output. This enables client interaction instead of
+Yarn should be able to serve dynamic content by executing Ruby
+scripts and returning the output. This enables client interaction instead of
 simply being served static content.
 
-In order to use the webserver with one of the many Ruby web-frameworks, it
+In order to use Yarn with one of the many Ruby web-frameworks, it
 should implement the Rack interface. This would instantly enable developers to
-use the webserver with their web-applications.
+use Yarn with their Ruby web-applications.
 
 \section{Requirements Specification}
 \label{req_spec}
-The list below summarises the requirements for the webserver developed in this
-project.
+The list below summarises the requirements for Yarn.
 
 \begin{itemize}
   \item Parse HTTP/1.1 requests in accordance with RFC 2616.
@@ -54,7 +53,6 @@ project.
 
 As this project was developed using BDD, the requirements specification was
 translated into a set of acceptance tests to get concrete feedback on
-completed requirements.
+completed requirements. These acceptance tests are included on the CD in
+\texttt{Yarn/features}.
 
-The webserver is named Yarn, and the later of the report will refer to it by
-this name.

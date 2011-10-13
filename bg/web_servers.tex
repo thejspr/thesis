@@ -5,8 +5,8 @@
 
 The goal of a webserver is to listen on a port for incoming requests, handle them
 by either returning the contents of a file, run a program and return it's
-output, or, if an error occurred, return an error message. Since the Internet was
-made public over 20 years ago there have been countless webservers created, most
+output, or return an error message if an error occurred. Since the Internet was
+made public over 20 years ago, there have been countless webservers created, most
 of which focus on handling websites written in a specific programming language
 or framework. Multi-core processors have long been available in server
 environments and hence, many webservers employ techniques to raise their
@@ -17,9 +17,9 @@ concurrency models they employ.
 
 \subsection{Rack}
 Rack is not an actual webserver, but an interface between webservers
-supporting Ruby and Ruby frameworks. It is covered here as some of the Ruby
-webservers covered next both implement it. Rack decouples the link between the
-webserver and web-application (written in one of the many Ruby frameworks) and
+supporting Ruby and Ruby web-frameworks. It is covered here as the Ruby
+webservers covered next implement it. Rack decouples the link between the
+webserver and web-application (written in one of the many Ruby web-frameworks) and
 hereby makes it possible to change webserver without having to make any
 changes to the web application. This is achieved by wrapping requests and
 responses in a Ruby object. By implementing the Rack interface, a webserver
@@ -46,15 +46,14 @@ balancer.
 \subsection{WEBrick}
 WEBrick is a webserver which is included in the Ruby standard library. It is
 written entirely in Ruby and employs concurrency by creating a separate thread
-for each incoming request. Like Thin, multiple instances of WEBrick would be
-required to enable multiprocessing. WEBrick is mostly used as a development
-server as it does not perform well under heavy loads due to it's concurrency
-model \cite{webrick}.
+for each incoming request. WEBrick is mostly used as a development
+server as it does not perform well under heavy loads due mainly to poor
+performance of it's HTTP parser \cite{webrick}.
 
 \subsection{Unicorn}
 Unicorn is a Ruby webserver which employs parallel processing by means of
-forking separate worker processes \cite{unicorndocs}. Like Thin, it also uses
-a C extension HTTP parser. By using processes, Unicorn allows for parallel
+forking separate worker processes \cite{unicorndocs}. It uses the same
+C extension HTTP parser as Thin. By using processes, Unicorn allows for parallel
 processing without the need to used a proxy server or load balancer as load
 balancing is performed by the operating system.
 

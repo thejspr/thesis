@@ -1,127 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="744.09448819"
-   height="1052.3622047"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.48.1 r9760"
-   sodipodi:docname="yarnhelp.pdf">
-  <defs
-     id="defs4" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="585.53623"
-     inkscape:cy="792.03597"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="1530"
-     inkscape:window-height="899"
-     inkscape:window-x="66"
-     inkscape:window-y="24"
-     inkscape:window-maximized="0" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <text
-       xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="12.121831"
-       y="18.976135"
-       id="text3013"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3015"
-         x="12.121831"
-         y="18.976135"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">[~]$ yarn --help </tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="36.476135"
-         id="tspan3017"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">Yarn v0.1.0 is a multiprocess webserver written in Ruby 1.9</tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="53.976135"
-         id="tspan3019"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace" /><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="71.476135"
-         id="tspan3021"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">Usage: yarn [options]</tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="88.976135"
-         id="tspan3023"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">where [options] are:</tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="106.47614"
-         id="tspan3025"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">     --host, -h &lt;s&gt;:   Hostname or IP address of the server (default: 127.0.0.1)</tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="123.97614"
-         id="tspan3027"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">     --port, -p &lt;i&gt;:   Port number to listen on for incomming requests (default: 3000)</tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="141.47614"
-         id="tspan3029"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">  --workers, -w &lt;i&gt;:   Number of worker threads (default: 4)</tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="158.97614"
-         id="tspan3031"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">     --rack, -r &lt;s&gt;:   Rackup file &lt;config.ru&gt; (default: off)</tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="176.47614"
-         id="tspan3033"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">          --log, -l:   Enable logging</tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="193.97614"
-         id="tspan3035"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">        --debug, -d:   Output debug messages</tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="211.47614"
-         id="tspan3037"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">      --version, -v:   Print version and exit</tspan><tspan
-         sodipodi:role="line"
-         x="12.121831"
-         y="228.97614"
-         id="tspan3039"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:Monospace">         --help, -e:   Show this message</tspan></text>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="svg2" sodipodi:docname="yarnhelp.pdf" inkscape:version="0.48.1 r9760" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="744.094px"
+	 height="1052.363px" viewBox="0 0 744.094 1052.363" enable-background="new 0 0 744.094 1052.363" xml:space="preserve">
+<sodipodi:namedview  id="base" inkscape:window-maximized="0" inkscape:window-y="24" inkscape:window-x="66" inkscape:window-height="899" inkscape:window-width="1530" inkscape:current-layer="layer1" inkscape:document-units="px" inkscape:pageshadow="2" inkscape:pageopacity="0.0" showgrid="false" inkscape:cy="792.03597" inkscape:cx="585.53623" inkscape:zoom="0.98994949" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff">
+	</sodipodi:namedview>
+<g id="layer1" inkscape:label="Layer 1" inkscape:groupmode="layer">
+	<text transform="matrix(1 0 0 1 12.1221 18.9761)" font-family="'CourierNewPSMT'" font-size="14">[~]$ yarn --help </text>
+	<text transform="matrix(1 0 0 1 12.1221 36.4761)" font-family="'CourierNewPSMT'" font-size="14">Yarn v0.1.1 is a multiprocess webserver written in Ruby 1.9</text>
+	<text transform="matrix(1 0 0 1 12.1221 71.4761)" font-family="'CourierNewPSMT'" font-size="14">Usage: yarn [options]</text>
+	<text transform="matrix(1 0 0 1 12.1221 88.9761)" font-family="'CourierNewPSMT'" font-size="14">where [options] are:</text>
+	<text transform="matrix(1 0 0 1 12.1221 106.4761)" font-family="'CourierNewPSMT'" font-size="14">     --host, -h &lt;s&gt;:   Hostname or IP address of the server (default: 127.0.0.1)</text>
+	<text transform="matrix(1 0 0 1 12.1221 123.9761)" font-family="'CourierNewPSMT'" font-size="14">     --port, -p &lt;i&gt;:   Port number to listen on for incomming requests (default: 3000)</text>
+	<text transform="matrix(1 0 0 1 12.1221 141.4761)" font-family="'CourierNewPSMT'" font-size="14">  --workers, -w &lt;i&gt;:   Number of worker threads (default: 4)</text>
+	<text transform="matrix(1 0 0 1 12.1221 158.9761)" font-family="'CourierNewPSMT'" font-size="14">     --rack, -r &lt;s&gt;:   Rackup file &lt;config.ru&gt; (default: off)</text>
+	<text transform="matrix(1 0 0 1 12.1221 176.4761)" font-family="'CourierNewPSMT'" font-size="14">          --log, -l:   Enable logging</text>
+	<text transform="matrix(1 0 0 1 12.1221 193.9761)" font-family="'CourierNewPSMT'" font-size="14">        --debug, -d:   Output debug messages</text>
+	<text transform="matrix(1 0 0 1 12.1221 211.4761)" font-family="'CourierNewPSMT'" font-size="14">      --version, -v:   Print version and exit</text>
+	<text transform="matrix(1 0 0 1 12.1221 228.9761)" font-family="'CourierNewPSMT'" font-size="14">         --help, -e:   Show this message</text>
+</g>
 </svg>

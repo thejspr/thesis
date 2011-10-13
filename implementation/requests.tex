@@ -5,23 +5,25 @@ handler classes \texttt{StaticHandler} and \texttt{DynamicHandler}, but
 later merged into what is now the \texttt{RequestHandler} class. From the
 beginning it was clear that the handler classes would have much functionality
 such as reading the request, invoking the parser and returning the response in
-common, but also some distinct functionality. A way to vary an algorithm
-whilst keeping much of the functionality the same is to use the Template
-Method design pattern. The process of handling requests can be split up into
+common, but also some distinct functionality. The process of handling requests can be split up into
 the following steps:
 
 \begin{enumerate}
-  \item Parse the request
-  \item Prepare the response
-  \item Return the response to the client
-  \item Close the connection
+  \item Parse the request.
+  \item Prepare the response.
+  \item Return the response to the client.
+  \item Close the connection.
 \end{enumerate}
 
 Given this process, the part that differs between handling static and dynamic
-files is preparing the response. The Template Method provides a
+files is preparing the response. 
+ A way to vary an algorithm
+whilst keeping much of the functionality the same is to use the Template
+Method design pattern.
+The Template Method provides a
 convenient way to vary the implementation of how the response is prepared
 \cite{design_patterns}.  Figure~\ref{template} shows how the relationship
-between the handler classes.
+between the handler classes as implemted using said pattern.
 
 \begin{figure}[htb]
   \centering
@@ -52,7 +54,7 @@ file or a directory. Listing~\ref{reqhandle} show the logic
 determining what is being served.
 
 \begin{lstlisting}[label=reqhandle,caption=\texttt{RequestHandler} logic.
-(lib/yarn/request\_handler.rb:8)]
+(Yarn/lib/yarn/request\_handler.rb:12)]
 begin
   if File.directory?(path)
     serve_directory(path)
@@ -68,10 +70,9 @@ end
 \end{lstlisting}
 
 If the requested path is a directory, then a directory listing is served. In
-case the requested file ends with \texttt{.rb}, then it is executed and the
+case the requested file ends with \texttt{.rb} (Ruby extension), then it is executed and the
 result is returned. In case the file does not exist or an error occurs
-executing a Ruby file, then an error page is returned. Ruby files are executed
-in the \texttt{execute\_script} method by evaluating the file using a new Ruby
-VM and the result stored as the response body.
-
+executing a Ruby file, then an error page is returned. Ruby files are served
+by evaluating the contents of the file using a new Ruby
+VM and the output is then stored as the response body.
 

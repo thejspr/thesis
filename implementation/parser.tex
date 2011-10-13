@@ -24,10 +24,10 @@ Request = Request-Line
           [ message-body ]
 \end{lstlisting}
 
-Listing\ref{bnf} translates to a \texttt{Request-Line}, followed by zero or
+Listing~\ref{bnf} translates to; a \texttt{Request-Line}, followed by zero or
 more headers, and after a \texttt{CRLF} an optional \texttt{message-body}.
 Headers include information such as cookies present in the browser, browser
-type, size of the \texttt{message-body} etc.. \texttt{CRLF} is a newline (line
+type, size of the \texttt{message-body}. \texttt{CRLF} is a newline (line
 break), and is used to define the structure of the request, e.g.\ each
 header is a separate line and an empty line separate the last header and the
 \texttt{message-body}. The \texttt{Request-Line}, as shown in
@@ -51,21 +51,14 @@ field=value&show=true
 
 % different parsers
 \subsection{Parsing Strategy}
-% There are several methods for parsing text according to a specification. One
-% is to use regular expressions to match patterns, another would be to use a
-% formal grammar to describe the form of the requests.
-% \fixme{Add PEG theory}
 The parser was written using a Ruby library named Parslet. Parslet works by
 defining a set of rules and then applying them to check whether the input
 satisfies the rules, and then extracts defined values. The rules consists of a
-mix of regular expressions and boolean logic.
-
-Listing~\ref{parsersrc} shows the rule for the \texttt{Request-Line} as shown
-in Listing~\ref{reqline}.
+mix of regular expressions and boolean logic. Listing~\ref{parsersrc} shows the rule for the \texttt{Request-Line} as shown in Listing~\ref{reqline}.
 
 \bigskip
 \begin{lstlisting}[label=parsersrc,caption=Request-Line parser rule.
-(lib/yarn/parser.rb:61)]
+(Yarn/lib/yarn/parser.rb:61)]
 rule(:request_line) do 
   method.as(:method) >> 
   space >> 
@@ -77,7 +70,7 @@ end
 \end{lstlisting}
 
 When a request is successfully parsed, a \texttt{Hash} containing the request
-data is returned. E.g.\ running the parser on the example from
+data is returned. E.g.\ running the parser on the example HTTP request from
 Listing~\ref{req_example} will produce the following \texttt{Hash}:
 
 \bigskip
@@ -93,4 +86,4 @@ Listing~\ref{req_example} will produce the following \texttt{Hash}:
 
 With the request formatted in a \texttt{Hash} it becomes very easy to
 query information about it. The numbers in Listing~\ref{parser_out} preluded
-by a \@ denote the elements start position in the request.
+by a @ denote the elements' start position in the request.

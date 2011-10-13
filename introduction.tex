@@ -7,10 +7,18 @@ With the Internet growing each day in terms of content and users, the role of
 webservers and especially their performance is increasing. Furthermore, as
 websites must be able to service multiple visitors at a time, the webserver
 serving it must employ some form of concurrency. Various concurrency models
-exist, and each comes with a set of advantages and disadvantages, all
-depending on the context of the webserver and the content being served. This
-project concerns concerns developing a concurrent webserver in the Ruby
-programming language, using Behaviour-Driven Development.
+exist, and each comes with a set of advantages and disadvantages all
+depending on the context of the webserver and the content being served.
+Concurrency both enables serving multiple requests at a time, but can also
+increase the performance of the webserver. Most computers has multi-core
+processors, but it is up to the webserver itself to properly utilize this to
+handle requests in parallel. This project aims at developing a concurrent
+webserver which utilizes multi-core processors and can handle parallel
+requests.
+
+Besides developing a webserver, focus is put on using a development method
+throughout the project. Two agile test-first development methods are examined,
+and the best candidate will be used. 
 
 \section{Readers Guide}
 Background information required for the remainder of the report is covered in

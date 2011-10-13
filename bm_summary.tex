@@ -3,5 +3,5 @@ In this chapter, the usage, installation and distribution of Yarn was covered.
 Yarn was also benchmarked in terms of how many requests per second it could
 serve. The results were compared to other Ruby webservers, and whilst yarn
 performed well for CPU intensive requests, it left room for improvement when
-serving static content. In the next chapter Yarn and the process of using BDD
+serving static content. The performance bottleneck in Yarn is the HTTP parser. In the next chapter Yarn and the process of using BDD
 is evaluated.
