@@ -2,8 +2,8 @@ Throughout the development of Yarn, acceptance tests and specifications were
 written prior to developing a feature. This provided a solid test coverage
 which in turn allowed for some radical refactorings to improve the quality,
 readability and performance of the system. By the end of development,
-all 13 acceptance tests (Cucumber features) and 82 specifications (RSpec
-specs) passed.  The final test coverage was 96.13\%, as depicted on
+all 13 acceptance tests (Cucumber features) and 80 specifications (RSpec
+specs) passed.  The final test coverage was 96.08\%, as depicted on
 Figure~\ref{coverage}. 
 
 \begin{figure}[htb]
@@ -21,8 +21,8 @@ was developed with BDD.
 
 \section{Testing for Concurrency}
 Some features were harder to test than others, and testing for concurrency was
-especially tricky. The solution was to invoke two requests to a Ruby file
-,which invoked the \texttt{sleep} method for a given amount of time before
+especially tricky. The solution was to invoke two requests to a Ruby file, 
+which invoked the \texttt{sleep} method for a given amount of time before
 returning the response. Firing a request which slept for a second would block
 other requests from being served during that second. But if the server could
 handle concurrent requests, a fast request fired after the slow request,
@@ -89,7 +89,7 @@ then implementing the expected behaviour.
 
 Each element which should be parsed was added incrementally by first writing a
 RSpec specification, and then adding the behaviour to the \texttt{Parser}
-class. For instance, then expected behaviour of being able to parse query
+class. For instance, the expected behaviour of being able to parse query
 parameters was written in a specification (Listing~\ref{queryspec}).
 
 \bigskip
@@ -103,7 +103,7 @@ end
 To begin with the parser is executed with a HTTP request. Then the result
 \texttt{Hash} is inspected to see whether the values match. Running the above
 specification would output an error message as the parser could not yet
-handler the query parameter. The behaviour, Listing~\ref{quepars} was then
+handle the query parameter. The behaviour, Listing~\ref{quepars} was then
 added to the \texttt{Parser} class.
 
 \bigskip
@@ -123,4 +123,14 @@ The behaviour added was lines 3,4 and lines 7 through 9. The path is checked
 for the occurrence of a question mark, and if it is found the sequence of
 characters until a whitespace character is parsed as the query string (line 8).
 
+The implementation of all rules in the \texttt{Parser} class was developed
+this way, totalling in 17 specs and one acceptance test.
 
+
+\section{Summary}
+Developing functionality through first describing their expected behaviour in a
+test, worked out well and always made it clear what the next step to
+completing a feature would be. 
+
+Using a tool to monitor test coverage, ensured that all execution paths were
+tested and thereby improved the value of the test suite.

@@ -6,8 +6,8 @@ Rack application and communicating requests and responses between the server
 and the application.
 
 Rack application are specified in a Ruby file which needs to be evaluated to
-load the application. An example application is included which simply returns
-a static array is included in Listing~\ref{rackex}.
+load the application. An example application which simply returns
+an array is included in Listing~\ref{rackex}.
 
 \bigskip
 \begin{lstlisting}[label=rackex,caption=Sample Rack application. (test\_objects/config.ru:4)]
@@ -30,7 +30,7 @@ loaded.
 
 Once loaded a Rack application is invoked with a \texttt{call} method which
 returns an array containing the HTTP status code, HTTP headers and message
-body. The The \texttt{call} method takes one parameter which is a
+body. The \texttt{call} method takes one parameter which is a
 \texttt{Hash} of values the Rack application needs such as the path, hostname,
 port, request body etc. \cite{rackspec}. 
 

@@ -1,5 +1,12 @@
 \section{Concurrent Programming} % (fold)
 \label{sec:concurrent}
+Concurrent programming has become an increasingly importang issue over the
+last decade due to the introduction of multi-core processors. As CPU
+manufactors rached a plateau in the clock speed due to heat issues, they
+started adding more cores to CPU's to make them faster. This poses a problem
+for software developers as they now have to explicitly program to
+multi-processor architectures in order to reap their benefits \cite{fund}.
+
 Concurrency refers to code which is executed simultaneously on one or more
 processors or cores in a single processor. Concurrent Programming refers to
 programming language constructs which enables code to be executed concurrently.
@@ -27,8 +34,8 @@ mainly; race conditions and deadlocks. A race condition occurs when two or more
 pieces of code tries to manipulate the same variable, and the outcome of the
 program changes depending on the order of the manipulations. An example would be
 if two threads, A and B, stored a counter in a global variable. Imagine thread A 
-reads the value of the counter and then gets preempted and thread B changes
-the counter and saves it. Then when thread A gets resumed it would have an
+reads the value of the counter and then gets preempted by the scheduler and thread B changes
+the counter and saves it. Then when thread A gets resumed, it would have an
 incorrect counter value, and changing the counter based on this would render
 thread B's previous change. Race conditions can be fixed by synchronizing access
 to shared resources such as variables. A common way too synchronize access to

@@ -9,7 +9,7 @@ values are used if none are given. By default the webserver will listen on
 \texttt{127.0.0.1:3000}, with four worker processes serving static and dynamic
 content. If a Rack file is given, then Yarn will serve requests according to
 the Rack application. For debugging purposes, the user can supply a parameter
-to include debug messages in the log. The following describes how handles
+to include debug messages in the log. The following describes how Yarn handles
 requests when serving static and dynamic files, and then how it serves Rack
 applications.
 
@@ -32,7 +32,7 @@ loop do
 end
 \end{lstlisting}
 
-For each iteration, the loop will wait at line 3 for an incoming connection,
+For each iteration the loop will wait at line 3 for an incoming connection,
 and not busy wait and run again. The handler classes takes care of all the
 rest and closes the connection when finished. If the user sends
 the interrupt signal (usually by pressing Ctrl-c), Yarn will kill the worker

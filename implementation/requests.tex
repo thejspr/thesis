@@ -18,7 +18,7 @@ the following steps:
 \end{enumerate}
 
 Given this process, the part that differs between handling static and dynamic
-files is preparing the response. The Template Method makes provides a
+files is preparing the response. The Template Method provides a
 convenient way to vary the implementation of how the response is prepared
 \cite{design_patterns}.  Figure~\ref{template} shows how the relationship
 between the handler classes.
@@ -30,7 +30,7 @@ between the handler classes.
   \label{template}
 \end{figure}
 
-Invoking run on each handler class would then follow the same process, but
+Invoking \texttt{run} on each handler class would then follow the same process, but
 each have their own implementation of \texttt{prepare\_response} method. Once
 both handler classes were implemented it became clear that it would make more
 sense to merge the two together to mirror how Yarn can be run to serve either
@@ -68,7 +68,7 @@ end
 \end{lstlisting}
 
 If the requested path is a directory, then a directory listing is served. In
-case the requested file is ends with \texttt{.rb}, then it is executed and the
+case the requested file ends with \texttt{.rb}, then it is executed and the
 result is returned. In case the file does not exist or an error occurs
 executing a Ruby file, then an error page is returned. Ruby files are executed
 in the \texttt{execute\_script} method by evaluating the file using a new Ruby
