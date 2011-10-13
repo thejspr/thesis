@@ -9,7 +9,7 @@ Rack application are specified in a Ruby file which needs to be evaluated to
 load the application. An example application which simply returns
 an array is included in Listing~\ref{rackex}.
 
-\bigskip
+\newpage
 \begin{lstlisting}[label=rackex,caption=Sample Rack application. (test\_objects/config.ru:4)]
 run Proc.new { |env|
   [200, {'Content-Type' => "text/plain"}, ["Rack works"]]
