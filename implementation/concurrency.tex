@@ -7,7 +7,7 @@ switching to processes.
 \subsection{Initial Thread-per-request Implementation}
 The initial implementation handled each incoming request in a new thread. This
 however, quickly proved to introduce too much overhead in creating a new
-threads. Furthermore, as the amount of threads hobbed up, memory use would
+threads. Furthermore, as the amount of threads increased, memory use would
 rise and eventually bog down the system. It became clear that another
 solution was needed, and a system devised of a thread-pool and a job queue was
 implemented. 
@@ -32,8 +32,7 @@ the bug illustrates one of the key problems of threaded programming; bugs are
 often very hard to replicate due to the complexity of the thread model and the
 thread scheduler. 
 
-Another problem with the thread-pool implementation was that it performed sub
-par to the initial implementation of creating a new thread for each request.
+Another problem with the thread-pool implementation was that it performed subpar to the initial implementation of creating a new thread for each request.
 This seemed to be caused by the way threads were scheduled, but again it
 proved too difficult to pinpoint the exact cause of the poor performance.
 
@@ -43,7 +42,7 @@ the concurrency feature using processes instead.
 %process model
 \subsection{Process-based Implementation}
 Implementing a process-based solution turned out to have many benefits, as it
-both reduced the complexity of Yarn, but also greatly improved upon it's
+both reduced the complexity of Yarn, but also greatly improved upon its
 performance.
 
 The process-based solution was implemented by using \texttt{Process::fork}
@@ -82,7 +81,7 @@ interrupt signal (INT) is trapped, such that when the user presses
 The process-based implementation improved the performance from $\sim$250
 requests/second to $\sim$700 requests/second. The performance is covered in
 more detail in Section~\ref{eval}. Another improvement of the process-based
-concurrency model is that Yarn can now run on in parallel on YARV, wheres the
+concurrency model is that Yarn can now run on in parallel on YARV, whereas the
 thread-based implementation would have to be run on JRuby to allow for
 parallelism.
 

@@ -5,7 +5,7 @@ concurrent requests) aspects of Yarn, WEBrick, Thin and Unicorn. It does not
 include topics like security and reliability, which are important for
 webservers, but out of scope for this project.
 
-To evaluate Yarn, it's performance will be analyzed first by itself, then it
+To evaluate Yarn, its performance will be analyzed first by itself, then it
 is compared to the other Ruby webservers covered in Section~\ref{webservers}.
 The measure of performance is how many requests the webserver can handle per
 second. The tests were run on a 64-bit Linux machine with four cores and 8GB
@@ -33,7 +33,7 @@ test consisted of making 2000 requests, 200 at a time, to Yarn serving a
 simple Rack application (source/test\_objects/config.ru).
 
 \subsection{Yarn Vs. Other Ruby Webservers}
-The following benchmarks compares Yarn's performance compared to
+The following benchmarks compare Yarn's performance compared to
 other Ruby webservers. Listing~\ref{staticbench} shows the results of
 measuring the webservers performance serving a simple static Rack application.
 The test was performed doing 2000 requests, 20 at a time. The average of four

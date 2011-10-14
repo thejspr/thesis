@@ -34,7 +34,7 @@ mainly; race conditions and deadlocks. A race condition occurs when two or more
 pieces of code tries to manipulate the same variable, and the outcome of the
 program changes depending on the order of the manipulations. An example would be
 if two threads, A and B, stored a counter in a global variable. Imagine thread A 
-reads the value of the counter and then gets preempted by the scheduler and thread B changes
+reads the value of the counter and then gets pre-empted by the scheduler and thread B changes
 the counter and saves it. Then when thread A gets resumed, it would have an
 incorrect counter value, and changing the counter based on this would render
 thread B's previous change. Race conditions can be fixed by synchronizing access

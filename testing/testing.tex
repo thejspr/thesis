@@ -13,8 +13,8 @@ Figure~\ref{coverage}.
   \label{coverage}
 \end{figure}
 
-During the development, the test coverage was continously monitored to ensure
-all parts of the system was exercised in the test suite. The test coverage
+During the development, the test coverage was continuously monitored to ensure
+all parts of the system were exercised in the test suite. The test coverage
 analysis is available on the CD in the \texttt{coverage} folder. The following
 looks at how testing for concurrency was performed, and how the HTTP parser
 was developed with BDD.
@@ -26,7 +26,7 @@ which invoked the \texttt{sleep} method for a given amount of time before
 returning the response. Firing a request which slept for a second would block
 other requests from being served during that second. But if the server could
 handle concurrent requests, a fast request fired after the slow request,
-should be able to get it's response prior to the slow request completing.
+should be able to get its response prior to the slow request completing.
 Listing~\ref{confea} shows the acceptance test for concurrent requests.
 
 \bigskip
@@ -84,7 +84,7 @@ With all the step definitions implemented, running the acceptance test again
 revealed that the class \texttt{Yarn::Parser} did not exist. Creating the
 class and running the test again revealed that the class did not have a method
 named \texttt{run}. The development continued in this loop of first asserting
-certain behavior from the code, discovering it did not behave as asserted, and
+certain behaviour from the code, discovering it did not behave as asserted, and
 then implementing the expected behaviour.
 
 Each element which should be parsed was added incrementally by first writing a

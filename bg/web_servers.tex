@@ -4,7 +4,7 @@
 %   concurrent requests.}
 
 The goal of a webserver is to listen on a port for incoming requests, handle them
-by either returning the contents of a file, run a program and return it's
+by either returning the contents of a file, run a program and return its
 output, or return an error message if an error occurred. Since the Internet was
 made public over 20 years ago, there have been countless webservers created, most
 of which focus on handling websites written in a specific programming language
@@ -48,7 +48,7 @@ WEBrick is a webserver which is included in the Ruby standard library. It is
 written entirely in Ruby and employs concurrency by creating a separate thread
 for each incoming request. WEBrick is mostly used as a development
 server as it does not perform well under heavy loads due mainly to poor
-performance of it's HTTP parser \cite{webrick}.
+performance of its HTTP parser \cite{webrick}.
 
 \subsection{Unicorn}
 Unicorn is a Ruby webserver which employs parallel processing by means of

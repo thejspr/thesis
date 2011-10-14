@@ -2,23 +2,23 @@
 <!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1"
-	 id="svg2" sodipodi:docname="yarnhelp.pdf" inkscape:version="0.48.1 r9760" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	 id="svg2" inkscape:version="0.48.1 r9760" sodipodi:docname="yarnhelp.pdf" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="744.094px"
 	 height="1052.363px" viewBox="0 0 744.094 1052.363" enable-background="new 0 0 744.094 1052.363" xml:space="preserve">
-<sodipodi:namedview  id="base" inkscape:window-maximized="0" inkscape:window-y="24" inkscape:window-x="66" inkscape:window-height="899" inkscape:window-width="1530" inkscape:current-layer="layer1" inkscape:document-units="px" inkscape:pageshadow="2" inkscape:pageopacity="0.0" showgrid="false" inkscape:cy="792.03597" inkscape:cx="585.53623" inkscape:zoom="0.98994949" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff">
+<sodipodi:namedview  id="base" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:document-units="px" inkscape:current-layer="layer1" inkscape:window-width="1530" inkscape:window-height="899" inkscape:window-x="66" inkscape:window-y="24" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:zoom="0.98994949" inkscape:cx="585.53623" inkscape:cy="792.03597" showgrid="false" inkscape:window-maximized="0">
 	</sodipodi:namedview>
-<g id="layer1" inkscape:label="Layer 1" inkscape:groupmode="layer">
-	<text transform="matrix(1 0 0 1 12.1221 18.9761)" font-family="'CourierNewPSMT'" font-size="14">[~]$ yarn --help </text>
-	<text transform="matrix(1 0 0 1 12.1221 36.4761)" font-family="'CourierNewPSMT'" font-size="14">Yarn v0.1.1 is a multiprocess webserver written in Ruby 1.9</text>
-	<text transform="matrix(1 0 0 1 12.1221 71.4761)" font-family="'CourierNewPSMT'" font-size="14">Usage: yarn [options]</text>
-	<text transform="matrix(1 0 0 1 12.1221 88.9761)" font-family="'CourierNewPSMT'" font-size="14">where [options] are:</text>
-	<text transform="matrix(1 0 0 1 12.1221 106.4761)" font-family="'CourierNewPSMT'" font-size="14">     --host, -h &lt;s&gt;:   Hostname or IP address of the server (default: 127.0.0.1)</text>
-	<text transform="matrix(1 0 0 1 12.1221 123.9761)" font-family="'CourierNewPSMT'" font-size="14">     --port, -p &lt;i&gt;:   Port number to listen on for incomming requests (default: 3000)</text>
-	<text transform="matrix(1 0 0 1 12.1221 141.4761)" font-family="'CourierNewPSMT'" font-size="14">  --workers, -w &lt;i&gt;:   Number of worker threads (default: 4)</text>
-	<text transform="matrix(1 0 0 1 12.1221 158.9761)" font-family="'CourierNewPSMT'" font-size="14">     --rack, -r &lt;s&gt;:   Rackup file &lt;config.ru&gt; (default: off)</text>
-	<text transform="matrix(1 0 0 1 12.1221 176.4761)" font-family="'CourierNewPSMT'" font-size="14">          --log, -l:   Enable logging</text>
-	<text transform="matrix(1 0 0 1 12.1221 193.9761)" font-family="'CourierNewPSMT'" font-size="14">        --debug, -d:   Output debug messages</text>
-	<text transform="matrix(1 0 0 1 12.1221 211.4761)" font-family="'CourierNewPSMT'" font-size="14">      --version, -v:   Print version and exit</text>
-	<text transform="matrix(1 0 0 1 12.1221 228.9761)" font-family="'CourierNewPSMT'" font-size="14">         --help, -e:   Show this message</text>
+<g id="layer1" inkscape:groupmode="layer" inkscape:label="Layer 1">
+	<text transform="matrix(1 0 0 1 12.1221 18.9766)" font-family="'CourierNewPSMT'" font-size="14">[~]$ yarn --help </text>
+	<text transform="matrix(1 0 0 1 12.1221 36.4766)" font-family="'CourierNewPSMT'" font-size="14">Yarn v0.1.1 is a multiprocess webserver written in Ruby 1.9</text>
+	<text transform="matrix(1 0 0 1 12.1221 71.4766)" font-family="'CourierNewPSMT'" font-size="14">Usage: yarn [options]</text>
+	<text transform="matrix(1 0 0 1 12.1221 88.9766)" font-family="'CourierNewPSMT'" font-size="14">where [options] are:</text>
+	<text transform="matrix(1 0 0 1 12.1221 106.4766)" font-family="'CourierNewPSMT'" font-size="14">     --host, -h &lt;s&gt;:   Hostname or IP address of the server (default: 127.0.0.1)</text>
+	<text transform="matrix(1 0 0 1 12.1221 123.9766)" font-family="'CourierNewPSMT'" font-size="14">     --port, -p &lt;i&gt;:   Port number to listen on for incoming requests (default: 3000)</text>
+	<text transform="matrix(1 0 0 1 12.1221 141.4766)" font-family="'CourierNewPSMT'" font-size="14">  --workers, -w &lt;i&gt;:   Number of worker threads (default: 4)</text>
+	<text transform="matrix(1 0 0 1 12.1221 158.9766)" font-family="'CourierNewPSMT'" font-size="14">     --rack, -r &lt;s&gt;:   Rackup file &lt;config.ru&gt; (default: off)</text>
+	<text transform="matrix(1 0 0 1 12.1221 176.4766)" font-family="'CourierNewPSMT'" font-size="14">          --log, -l:   Enable logging</text>
+	<text transform="matrix(1 0 0 1 12.1221 193.9766)" font-family="'CourierNewPSMT'" font-size="14">        --debug, -d:   Output debug messages</text>
+	<text transform="matrix(1 0 0 1 12.1221 211.4766)" font-family="'CourierNewPSMT'" font-size="14">      --version, -v:   Print version and exit</text>
+	<text transform="matrix(1 0 0 1 12.1221 228.9766)" font-family="'CourierNewPSMT'" font-size="14">         --help, -e:   Show this message</text>
 </g>
 </svg>
